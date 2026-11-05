@@ -1,0 +1,1230 @@
+{
+  "actions": {
+    "description": "表格标题：操作",
+    "message": "操作"
+  },
+  "addDomain": {
+    "description": "按钮标签：添加域名",
+    "message": "添加域名"
+  },
+  "addDomainErrorEmpty": {
+    "description": "错误消息：域名为空",
+    "message": "请输入域名"
+  },
+  "addDomainErrorExists": {
+    "description": "错误消息：域名已存在",
+    "message": "该域名已存在"
+  },
+  "addDomainHint": {
+    "description": "对话框提示文本",
+    "message": "输入域名后可配置图片过滤设置，创建后立即保存。"
+  },
+  "addDomainHintText": {
+    "description": "空状态提示文本",
+    "message": "点击右上角\"添加域名\"按钮，手动添加域名设置"
+  },
+  "addDomainSettings": {
+    "description": "对话框标题：添加域名设置",
+    "message": "添加域名设置"
+  },
+  "addExclusionRule": {
+    "description": "对话框标题：添加排除规则",
+    "message": "添加排除规则"
+  },
+  "addRule": {
+    "description": "按钮标签：添加规则",
+    "message": "添加规则"
+  },
+  "allImages": {
+    "description": "预设标签：所有图片",
+    "message": "所有图片"
+  },
+  "allImagesButton": {
+    "description": "按钮：所有图片",
+    "message": "所有图片"
+  },
+  "allImagesDesc": {
+    "description": "预设描述：所有图片",
+    "message": "选择页面中所有 img 标签"
+  },
+  "appliedSelector": {
+    "description": "成功消息，带域名、选择器和数量占位符",
+    "message": "已应用选择器到域名: $1<br><code>$2</code><br>匹配图片: $3 张",
+    "placeholders": {
+      "1": {
+        "content": "$1",
+        "example": "example.com"
+      },
+      "2": {
+        "content": "$2",
+        "example": ".image"
+      },
+      "3": {
+        "content": "$3",
+        "example": "5"
+      }
+    }
+  },
+  "applyToDomain": {
+    "description": "按钮标签",
+    "message": "应用到当前域名"
+  },
+  "articleImages": {
+    "description": "预设标签：文章内容图片",
+    "message": "文章内容图片"
+  },
+  "articleImagesDesc": {
+    "description": "预设描述：文章内容图片",
+    "message": "常见文章内容区域图片选择器"
+  },
+  "autoDomainSource": {
+    "description": "来源选项：域名排除",
+    "message": "域名排除"
+  },
+  "autoHideDelay": {
+    "description": "隐藏延迟输入框标签",
+    "message": "隐藏延迟 (秒):"
+  },
+  "autoHideDelayDesc": {
+    "description": "自动隐藏延迟的描述",
+    "message": "1-10 秒"
+  },
+  "autoHideDelayLabel": {
+    "description": "标签：隐藏延迟",
+    "message": "隐藏延迟 (秒)"
+  },
+  "autoHideDisabled": {
+    "description": "开关工具提示",
+    "message": "自动隐藏已禁用，点击启用"
+  },
+  "autoHideEnabled": {
+    "description": "开关工具提示",
+    "message": "自动隐藏已启用，点击禁用"
+  },
+  "autoHideUI": {
+    "description": "自动隐藏UI开关标签",
+    "message": "自动隐藏UI:"
+  },
+  "autoHideUIDesc": {
+    "description": "自动隐藏UI的描述",
+    "message": "不操作指定秒数后自动隐藏控制栏"
+  },
+  "autoHideUILabel": {
+    "description": "标签：自动隐藏UI",
+    "message": "自动隐藏UI"
+  },
+  "autoUrlSource": {
+    "description": "来源选项：地址排除",
+    "message": "地址排除"
+  },
+  "avatarImages": {
+    "description": "预设标签：头像",
+    "message": "头像"
+  },
+  "avatarImagesDesc": {
+    "description": "预设描述：头像",
+    "message": "常见头像图片选择器"
+  },
+  "basicSettings": {
+    "description": "区域标题：基本设置",
+    "message": "基本设置"
+  },
+  "cancel": {
+    "description": "按钮标签：取消",
+    "message": "取消"
+  },
+  "cannotGetTab": {
+    "description": "错误消息",
+    "message": "无法获取当前标签页"
+  },
+  "cannotGetUrl": {
+    "description": "错误消息",
+    "message": "无法获取页面 URL"
+  },
+  "clearAll": {
+    "description": "按钮标签：清除全部",
+    "message": "清除全部"
+  },
+  "clearAllDomainSettings": {
+    "description": "按钮标签：清除全部",
+    "message": "清除全部域名设置"
+  },
+  "clearPageSetting": {
+    "description": "按钮标签",
+    "message": "清除页面设置"
+  },
+  "clearSetting": {
+    "description": "按钮标签",
+    "message": "清除设置"
+  },
+  "clickImageToStart": {
+    "description": "提示文本",
+    "message": "点击网页中的图片即可启动幻灯片播放"
+  },
+  "clickImageToStartWithSource": {
+    "description": "提示文本，带来源占位符",
+    "message": "点击网页中的图片即可启动幻灯片播放 ($1)",
+    "placeholders": {
+      "1": {
+        "content": "$1",
+        "example": "全局设置"
+      }
+    }
+  },
+  "closeEsc": {
+    "description": "按钮工具提示",
+    "message": "关闭 (Esc)"
+  },
+  "closeShowcase": {
+    "description": "按钮工具提示",
+    "message": "关闭橱窗"
+  },
+  "comicAutoMoveOff": {
+    "description": "漫画阅读自动移动暂停提示",
+    "message": "自动移动已暂停"
+  },
+  "comicAutoMoveOn": {
+    "description": "漫画阅读自动移动开启提示",
+    "message": "自动移动已开启"
+  },
+  "comicEnterToast": {
+    "description": "进入漫画阅读模式的提示",
+    "message": "漫画阅读模式：滚轮缩放，拖拽平移。开启自动播放后会自动移动浏览。"
+  },
+  "comicExitToast": {
+    "description": "退出漫画阅读模式提示",
+    "message": "已退出漫画阅读模式"
+  },
+  "comicKeepHorizontal": {
+    "description": "域名设置中水平预留比例字段标签",
+    "message": "水平预留比例"
+  },
+  "comicKeepHorizontalLabel": {
+    "description": "漫画阅读模式水平方向预留比例标签",
+    "message": "水平预留比例 (%):"
+  },
+  "comicKeepHorizontalTip": {
+    "description": "漫画阅读模式水平预留比例说明",
+    "message": "按屏跳跃时，左右相邻两屏之间的重叠比例（0 = 无重叠，10 = 保留 10% 上一屏内容）。"
+  },
+  "comicKeepVertical": {
+    "description": "域名设置中垂直预留比例字段标签",
+    "message": "垂直预留比例"
+  },
+  "comicKeepVerticalLabel": {
+    "description": "漫画阅读模式垂直方向预留比例标签",
+    "message": "垂直预留比例 (%):"
+  },
+  "comicKeepVerticalTip": {
+    "description": "漫画阅读模式垂直预留比例说明",
+    "message": "按屏跳跃时，上下相邻两屏之间的重叠比例（0 = 无重叠，10 = 保留 10% 上一屏内容）。"
+  },
+  "comicMode": {
+    "description": "域名设置中漫画模式字段标签",
+    "message": "漫画模式"
+  },
+  "comicModeSection": {
+    "description": "漫画阅读模式设置区域标题",
+    "message": "漫画阅读模式"
+  },
+  "comicPanHorizontalLtr": {
+    "description": "漫画阅读移动方向：从左到右",
+    "message": "从左到右"
+  },
+  "comicPanHorizontalLtrTip": {
+    "description": "从左到右模式说明",
+    "message": "图片从最左边开始，缓慢向右移动到最右边，到达右端后切换到下一张图片。适合横向宽图。"
+  },
+  "comicPanHorizontalRtl": {
+    "description": "漫画阅读移动方向：从右到左",
+    "message": "从右到左"
+  },
+  "comicPanHorizontalRtlTip": {
+    "description": "从右到左模式说明",
+    "message": "图片从最右边开始，缓慢向左移动到最左边，到达左端后切换到下一张图片。适合从右向左阅读的横向宽图。"
+  },
+  "comicPanMode": {
+    "description": "域名设置中移动方向字段标签",
+    "message": "移动方向"
+  },
+  "comicPanModeLabel": {
+    "description": "漫画阅读模式移动方向标签",
+    "message": "移动方向:"
+  },
+  "comicPanModeToast": {
+    "description": "切换移动方向后的提示，参数1为方向名称",
+    "message": "移动方向：$1$",
+    "placeholders": {
+      "1": {
+        "content": "$1",
+        "example": "左"
+      }
+    }
+  },
+  "comicPanReadLtr": {
+    "description": "漫画阅读移动方向：逐行右读",
+    "message": "阅读式（左上→右下）"
+  },
+  "comicPanReadLtrTip": {
+    "description": "逐行右读模式说明",
+    "message": "把图片按屏高分为若干行，每行从左向右浏览；到达行末后直接瞬移到下一行最左，依次向下，直到图片最后一行结束再切换下一张。适合从左向右阅读的漫画。"
+  },
+  "comicPanReadRtl": {
+    "description": "漫画阅读移动方向：逐行左读",
+    "message": "阅读式（右上→左下）"
+  },
+  "comicPanReadRtlTip": {
+    "description": "逐行左读模式说明",
+    "message": "把图片按屏高分为若干行，每行从右向左浏览；到达行末后直接瞬移到下一行最右，依次向下，直到图片最后一行结束再切换下一张。适合从右向左（如日漫）阅读的漫画。"
+  },
+  "comicPanVertical": {
+    "description": "漫画阅读移动方向：从上到下",
+    "message": "从上到下"
+  },
+  "comicPanVerticalTip": {
+    "description": "从上到下模式说明",
+    "message": "图片从最上方开始，缓慢向下移动到最下方，到达底部后切换到下一张图片。适合纵向长图。"
+  },
+  "comicPanZigzagLtr": {
+    "description": "漫画阅读移动方向：蛇形折返，首行从左到右",
+    "message": "蛇形往返（左起）"
+  },
+  "comicPanZigzagLtrTip": {
+    "description": "蛇形往返（左起）模式说明",
+    "message": "像蛇一样折返扫读：第一行从左到右，到行尾折返到下一行，改从右到左；如此交替向下，直到图片底部最右，再切换下一张。适合逐屏浏览宽图。"
+  },
+  "comicPanZigzagRtl": {
+    "description": "漫画阅读移动方向：蛇形折返，首行从右到左",
+    "message": "蛇形往返（右起）"
+  },
+  "comicPanZigzagRtlTip": {
+    "description": "蛇形往返（右起）模式说明",
+    "message": "像蛇一样折返扫读：第一行从右到左，到行尾折返到下一行，改从左到右；如此交替向下，直到图片底部最左，再切换下一张。适合逐屏浏览宽图。"
+  },
+  "comicSmooth": {
+    "description": "域名设置中平滑移动字段标签",
+    "message": "平滑移动"
+  },
+  "comicSmoothLabel": {
+    "description": "漫画阅读模式平滑移动开关标签",
+    "message": "平滑移动:"
+  },
+  "comicSmoothTip": {
+    "description": "漫画阅读模式平滑移动说明",
+    "message": "开启后沿完整路径平滑连续移动；关闭后改为按屏跳跃，移动顺序不变但一次只看一屏。"
+  },
+  "comicToggleTitle": {
+    "description": "漫画阅读模式按钮提示",
+    "message": "漫画阅读模式（点击开启/关闭，右键切换移动方向）"
+  },
+  "comicZoom": {
+    "description": "域名设置中缩放字段标签",
+    "message": "缩放"
+  },
+  "comicZoomInTitle": {
+    "description": "漫画阅读放大按钮提示",
+    "message": "放大 (漫画阅读模式)"
+  },
+  "comicZoomLabel": {
+    "description": "漫画阅读模式缩放百分比标签",
+    "message": "缩放 (%):"
+  },
+  "comicZoomOutTitle": {
+    "description": "漫画阅读缩小按钮提示",
+    "message": "缩小 (漫画阅读模式)"
+  },
+  "confirmAdd": {
+    "description": "按钮标签：确认添加",
+    "message": "确认添加"
+  },
+  "contextDetectSelectorImage": {
+    "description": "右键菜单项",
+    "message": "在图片上进行探测选择器"
+  },
+  "contextDetectSelectorPage": {
+    "description": "右键菜单项",
+    "message": "🎯 探测选择器"
+  },
+  "contextExcludeDomain": {
+    "description": "右键菜单项",
+    "message": "排除此域名"
+  },
+  "contextExcludeUrl": {
+    "description": "右键菜单项",
+    "message": "排除此地址"
+  },
+  "contextMenuTitle": {
+    "description": "右键菜单标题",
+    "message": "沉浸式看图"
+  },
+  "contextOpenContinue": {
+    "description": "右键菜单项",
+    "message": "打开幻灯片(继续)"
+  },
+  "contextOpenSettings": {
+    "description": "右键菜单项",
+    "message": "打开设置"
+  },
+  "createdTime": {
+    "description": "表格标题：创建时间",
+    "message": "创建时间"
+  },
+  "currentPage": {
+    "description": "状态来源",
+    "message": "当前页面"
+  },
+  "currentPageSettings": {
+    "description": "当前页面设置区域标题",
+    "message": "当前页面设置（最高优先级）"
+  },
+  "custom": {
+    "description": "自定义输入标签",
+    "message": "自定义..."
+  },
+  "customFields": {
+    "description": "表格标题：自定义字段",
+    "message": "自定义字段"
+  },
+  "decreaseInterval": {
+    "description": "按钮工具提示",
+    "message": "减少间隔"
+  },
+  "detectSelector": {
+    "description": "按钮标签",
+    "message": "🎯 探测选择器"
+  },
+  "detectSelectorHint": {
+    "description": "探测模式提示",
+    "message": "点击页面中的任意图片，自动识别其选择器"
+  },
+  "detectedSelector": {
+    "description": "探测结果标题",
+    "message": "探测到选择器:"
+  },
+  "disabledStatus": {
+    "description": "状态文本：已禁用",
+    "message": "已禁用"
+  },
+  "disabledWithSource": {
+    "description": "状态提示，带来源占位符",
+    "message": "当前页面幻灯片功能已禁用 ($1)",
+    "placeholders": {
+      "1": {
+        "content": "$1",
+        "example": "域名设置"
+      }
+    }
+  },
+  "domain": {
+    "description": "表格标题：域名",
+    "message": "域名"
+  },
+  "domainEnableTooltip": {
+    "description": "域名启用开关工具提示",
+    "message": "启用/禁用当前域名的幻灯片功能"
+  },
+  "domainLabel": {
+    "description": "标签：域名",
+    "message": "域名"
+  },
+  "domainSetting": {
+    "description": "状态来源",
+    "message": "域名设置"
+  },
+  "domainSettings": {
+    "description": "区域标题",
+    "message": "域名设置"
+  },
+  "downloadAll": {
+    "description": "按钮提示：批量下载全部图片，$1 为数量占位符",
+    "message": "下载全部（$1$ 张）",
+    "placeholders": {
+      "1": {
+        "content": "$1",
+        "example": "10"
+      }
+    }
+  },
+  "downloadAllShort": {
+    "description": "批量下载按钮的简短文字",
+    "message": "下载全部"
+  },
+  "downloadComplete": {
+    "description": "提示：全部下载完成，$1 为数量占位符",
+    "message": "已下载 $1$ 张图片",
+    "placeholders": {
+      "1": {
+        "content": "$1",
+        "example": "10"
+      }
+    }
+  },
+  "downloadFailed": {
+    "description": "提示：下载失败，$1 为错误信息",
+    "message": "下载失败：$1$",
+    "placeholders": {
+      "1": {
+        "content": "$1",
+        "example": "网络错误"
+      }
+    }
+  },
+  "downloadImage": {
+    "description": "按钮提示：下载当前图片",
+    "message": "下载当前图片"
+  },
+  "downloadPartial": {
+    "description": "提示：部分下载结果",
+    "message": "已下载 $1$ 张，失败 $2$ 张",
+    "placeholders": {
+      "1": {
+        "content": "$1",
+        "example": "8"
+      },
+      "2": {
+        "content": "$2",
+        "example": "2"
+      }
+    }
+  },
+  "downloadStarted": {
+    "description": "提示：单张图片已开始下载",
+    "message": "已开始下载"
+  },
+  "downloadingAll": {
+    "description": "提示：正在批量下载，$1 为数量占位符",
+    "message": "正在批量下载 $1$ 张图片…",
+    "placeholders": {
+      "1": {
+        "content": "$1",
+        "example": "10"
+      }
+    }
+  },
+  "editDomainHint": {
+    "description": "对话框提示文本",
+    "message": "修改该域名的图片查看器设置，未修改的字段将使用全局默认设置。"
+  },
+  "editDomainSettings": {
+    "description": "对话框标题，带域名占位符",
+    "message": "编辑域名设置: $1",
+    "placeholders": {
+      "1": {
+        "content": "$1",
+        "example": "example.com"
+      }
+    }
+  },
+  "enableComicMode": {
+    "description": "启用漫画阅读模式开关标签",
+    "message": "启用漫画阅读模式:"
+  },
+  "enableSlideshow": {
+    "description": "启用幻灯片开关标签",
+    "message": "启用幻灯片"
+  },
+  "enableSlideshowDesc": {
+    "description": "启用幻灯片设置的描述",
+    "message": "全局总开关，关闭后所有网站停用幻灯片功能"
+  },
+  "enableSlideshowLabel": {
+    "description": "标签：启用幻灯片",
+    "message": "启用幻灯片"
+  },
+  "enabledStatus": {
+    "description": "状态文本：已启用",
+    "message": "已启用"
+  },
+  "excludeDomain": {
+    "description": "按钮标签",
+    "message": "排除此域名"
+  },
+  "excludeUrl": {
+    "description": "按钮标签",
+    "message": "排除此地址"
+  },
+  "excluded": {
+    "description": "状态文本：已排除",
+    "message": "已排除"
+  },
+  "excludedByRule": {
+    "description": "排除提示，带来源和模式占位符",
+    "message": "已被\"$1\"规则排除: $2",
+    "placeholders": {
+      "1": {
+        "content": "$1",
+        "example": "域名"
+      },
+      "2": {
+        "content": "$2",
+        "example": "example.com"
+      }
+    }
+  },
+  "exclusionManagement": {
+    "description": "区域标题",
+    "message": "排除管理"
+  },
+  "exclusionRulesHint": {
+    "description": "空状态提示文本",
+    "message": "添加排除规则后，匹配的页面将不启用幻灯片功能"
+  },
+  "exitFullscreen": {
+    "description": "按钮工具提示",
+    "message": "退出全屏 (Esc)"
+  },
+  "extensionDescription": {
+    "description": "扩展描述",
+    "message": "点击网页图片后以幻灯片方式播放查看"
+  },
+  "extensionName": {
+    "description": "扩展名称",
+    "message": "图观"
+  },
+  "filter": {
+    "description": "标记文本：过滤",
+    "message": "过滤"
+  },
+  "filterBadge": {
+    "description": "标记文本：过滤",
+    "message": "过滤"
+  },
+  "fullScreen": {
+    "description": "按钮工具提示",
+    "message": "全屏"
+  },
+  "globalDisabled": {
+    "description": "状态文本：全局已禁用",
+    "message": "全局已禁用"
+  },
+  "globalSetting": {
+    "description": "状态来源",
+    "message": "全局设置"
+  },
+  "hide": {
+    "description": "开关标签",
+    "message": "隐藏"
+  },
+  "ignore": {
+    "description": "按钮标签",
+    "message": "忽略"
+  },
+  "image": {
+    "description": "图片标签，带索引占位符",
+    "message": "图片 $1",
+    "placeholders": {
+      "1": {
+        "content": "$1",
+        "example": "1"
+      }
+    }
+  },
+  "imageDisplay": {
+    "description": "区域标题：图片显示",
+    "message": "图片显示"
+  },
+  "imageFilterSettings": {
+    "description": "区域标题：图片过滤设置",
+    "message": "图片过滤设置"
+  },
+  "imageSelector": {
+    "description": "图片选择器标签",
+    "message": "图片选择器"
+  },
+  "imageSelectorDesc": {
+    "description": "图片选择器的描述",
+    "message": "CSS 选择器，用于筛选需要显示的图片"
+  },
+  "imageSelectorLabel": {
+    "description": "标签：图片选择器",
+    "message": "图片选择器"
+  },
+  "imageSettings": {
+    "description": "表格标题：图片设置",
+    "message": "图片设置"
+  },
+  "imageSettingsLabel": {
+    "description": "标签：图片设置",
+    "message": "图片设置"
+  },
+  "increaseInterval": {
+    "description": "按钮工具提示",
+    "message": "增加间隔"
+  },
+  "injectionConnectionFailed": {
+    "description": "错误消息",
+    "message": "注入 content script 后仍需建立连接，请刷新页面后重试"
+  },
+  "injectionFailed": {
+    "description": "错误消息，带详情占位符",
+    "message": "无法注入内容脚本到当前页面\n\n错误详情: $1\n\n请尝试：\n1. 刷新页面（F5）\n2. 在 chrome://extensions/ 页面重新加载扩展",
+    "placeholders": {
+      "1": {
+        "content": "$1",
+        "example": "错误详情"
+      }
+    }
+  },
+  "intervalTooltip": {
+    "description": "秒数按钮的工具提示",
+    "message": "幻灯片时长调节: 单击切换秒数,双击自定义秒数,右键选择秒数"
+  },
+  "loading": {
+    "description": "加载文本",
+    "message": "加载中..."
+  },
+  "manualSource": {
+    "description": "来源选项：手动添加",
+    "message": "手动添加"
+  },
+  "matchCount": {
+    "description": "匹配数量，带占位符",
+    "message": "匹配图片数量: $1",
+    "placeholders": {
+      "1": {
+        "content": "$1",
+        "example": "5"
+      }
+    }
+  },
+  "matchPattern": {
+    "description": "表格标题：匹配模式",
+    "message": "匹配模式"
+  },
+  "matchPatternDesc": {
+    "description": "对话框描述：匹配模式",
+    "message": "输入 URL 匹配模式（支持通配符 * 和 **），如 *://*.example.com/*"
+  },
+  "minImageHeight": {
+    "description": "最小图片高度标签",
+    "message": "最小图片高度 (px)"
+  },
+  "minImageHeightDesc": {
+    "description": "最小图片高度的描述",
+    "message": "图片高度小于此值的将被过滤"
+  },
+  "minImageHeightLabel": {
+    "description": "标签：最小图片高度",
+    "message": "最小图片高度 (px)"
+  },
+  "minImageWidth": {
+    "description": "最小图片宽度标签",
+    "message": "最小图片宽度 (px)"
+  },
+  "minImageWidthDesc": {
+    "description": "最小图片宽度的描述",
+    "message": "图片宽度小于此值的将被过滤"
+  },
+  "minImageWidthLabel": {
+    "description": "标签：最小图片宽度",
+    "message": "最小图片宽度 (px)"
+  },
+  "nextImage": {
+    "description": "按钮工具提示",
+    "message": "下一张 (→)"
+  },
+  "noDomainSettings": {
+    "description": "空状态：暂无域名设置",
+    "message": "暂无域名设置"
+  },
+  "noExclusionRules": {
+    "description": "空状态：暂无排除规则",
+    "message": "暂无排除规则"
+  },
+  "noImageFound": {
+    "description": "错误消息",
+    "message": "未找到图片，请在图片上右键后重试"
+  },
+  "noImagesToDownload": {
+    "description": "提示：没有可下载的图片",
+    "message": "没有可下载的图片"
+  },
+  "noMatchImages": {
+    "description": "Toast 消息",
+    "message": "当前页面没有匹配到的图片"
+  },
+  "noMatchingDomain": {
+    "description": "空状态：没有匹配的域名",
+    "message": "没有匹配的域名"
+  },
+  "noMatchingPage": {
+    "description": "空状态：没有匹配的页面",
+    "message": "没有匹配的页面"
+  },
+  "noMatchingRule": {
+    "description": "空状态：没有匹配的规则",
+    "message": "没有匹配的规则"
+  },
+  "noPageSettings": {
+    "description": "空状态：暂无页面开关记录",
+    "message": "暂无页面开关记录"
+  },
+  "notInitialized": {
+    "description": "错误消息",
+    "message": "SlideshowViewer 未初始化"
+  },
+  "openAdvancedSettings": {
+    "description": "弹出窗口中的按钮标签",
+    "message": "高级设置"
+  },
+  "openSlideshowContinue": {
+    "description": "按钮标签",
+    "message": "打开幻灯片(继续)"
+  },
+  "openSlideshowFailed": {
+    "description": "错误消息",
+    "message": "打开幻灯片失败: $1",
+    "placeholders": {
+      "1": {
+        "content": "$1",
+        "example": "错误"
+      }
+    }
+  },
+  "operation": {
+    "description": "表格标题：操作",
+    "message": "操作"
+  },
+  "optionsHeading": {
+    "description": "选项页面标题",
+    "message": "高级设置"
+  },
+  "optionsSubtitle": {
+    "description": "选项页面副标题",
+    "message": "沉浸式看图"
+  },
+  "optionsTitle": {
+    "description": "选项页面标题",
+    "message": "高级设置 - 沉浸式看图"
+  },
+  "pageSettingsHint": {
+    "description": "空状态提示文本",
+    "message": "在 Popup 中切换某页面的开关后，此处将显示记录"
+  },
+  "pageUrl": {
+    "description": "表格标题：页面地址",
+    "message": "页面地址"
+  },
+  "pause": {
+    "description": "播放时的按钮工具提示",
+    "message": "暂停 (空格)"
+  },
+  "playPause": {
+    "description": "按钮工具提示",
+    "message": "播放/暂停 (空格)"
+  },
+  "pleaseClickImage": {
+    "description": "按钮文本：请点击图片",
+    "message": "请点击图片..."
+  },
+  "pleaseEnableInGlobal": {
+    "description": "提示文本",
+    "message": "请在全局设置中启用扩展"
+  },
+  "pleaseRefreshPage": {
+    "description": "错误消息，带错误详情占位符",
+    "message": "探测失败：无法与页面通信。\n\n错误详情：$1\n\n请按以下步骤操作：\n1. 在 chrome://extensions/ 页面点击本扩展的\"重新加载\"按钮\n2. 刷新当前测试页面（F5）\n3. 再次点击\"🎯 探测选择器\"按钮",
+    "placeholders": {
+      "1": {
+        "content": "$1",
+        "example": "错误详情"
+      }
+    }
+  },
+  "popupTitle": {
+    "description": "弹出窗口标题",
+    "message": "沉浸式看图"
+  },
+  "prevImage": {
+    "description": "按钮工具提示",
+    "message": "上一张 (←)"
+  },
+  "rememberPerDomain": {
+    "description": "记住每个域名设置开关标签",
+    "message": "记住每个域名的设置"
+  },
+  "rememberPerDomainDesc": {
+    "description": "按域名记忆设置的描述",
+    "message": "为不同网站独立保存缩放模式、间隔等设置"
+  },
+  "restoreDefaults": {
+    "description": "按钮标签：恢复默认值",
+    "message": "恢复默认值"
+  },
+  "ruleAlreadyExists": {
+    "description": "警告消息",
+    "message": "该规则已存在！"
+  },
+  "ruleSourceAutoDomain": {
+    "description": "规则来源文本",
+    "message": "域名"
+  },
+  "ruleSourceAutoUrl": {
+    "description": "规则来源文本",
+    "message": "地址"
+  },
+  "ruleSourceManual": {
+    "description": "规则来源文本",
+    "message": "手动"
+  },
+  "save": {
+    "description": "按钮标签：保存",
+    "message": "保存"
+  },
+  "searchDomain": {
+    "description": "占位符：搜索域名",
+    "message": "搜索域名..."
+  },
+  "searchPage": {
+    "description": "占位符：搜索页面地址",
+    "message": "搜索页面地址..."
+  },
+  "searchRule": {
+    "description": "占位符：搜索排除规则",
+    "message": "搜索排除规则..."
+  },
+  "second": {
+    "description": "间隔选项，带秒数占位符",
+    "message": "$1秒",
+    "placeholders": {
+      "1": {
+        "content": "$1",
+        "example": "3"
+      }
+    }
+  },
+  "seconds": {
+    "description": "间隔显示，带秒数占位符",
+    "message": "$1秒",
+    "placeholders": {
+      "1": {
+        "content": "$1",
+        "example": "3"
+      }
+    }
+  },
+  "selectorPrefix": {
+    "description": "选择器前缀",
+    "message": "选择器: "
+  },
+  "shareClose": {
+    "description": "分享面板关闭按钮",
+    "message": "关闭"
+  },
+  "shareCopiedImage": {
+    "description": "提示：图片已复制到剪贴板",
+    "message": "已复制图片"
+  },
+  "shareCopiedLink": {
+    "description": "提示：图片链接已复制到剪贴板",
+    "message": "已复制图片链接"
+  },
+  "shareCopyFailed": {
+    "description": "提示：复制失败",
+    "message": "复制失败"
+  },
+  "shareDomestic": {
+    "description": "分享分组标题：国内平台",
+    "message": "国内平台"
+  },
+  "shareHint": {
+    "description": "分享面板底部的提示",
+    "message": "部分平台需在新标签页中登录后再发布"
+  },
+  "shareImage": {
+    "description": "按钮标题：分享当前图片",
+    "message": "分享图片"
+  },
+  "shareImageCopiedOpenTab": {
+    "description": "提示：复制图片后打开新标签页（如 Telegram），$1 为平台名称",
+    "message": "已复制图片，打开$1$后请粘贴发送",
+    "placeholders": {
+      "1": {
+        "content": "$1",
+        "example": "Telegram"
+      }
+    }
+  },
+  "shareImageFallbackLink": {
+    "description": "提示：复制图片失败，退化为复制链接",
+    "message": "复制图片失败，已改为复制链接"
+  },
+  "shareInternational": {
+    "description": "分享分组标题：国外平台",
+    "message": "国外平台"
+  },
+  "shareLinkCopiedOpenTab": {
+    "description": "提示：复制图片链接后打开新标签页（如贴吧），$1 为平台名称",
+    "message": "已复制图片链接，打开$1$后发贴时粘贴链接即可贴图",
+    "placeholders": {
+      "1": {
+        "content": "$1",
+        "example": "百度贴吧"
+      }
+    }
+  },
+  "shareLocalFallback": {
+    "description": "提示：本地/二进制图片无法生成分享链接，已复制图片",
+    "message": "本地图片无法分享，已复制到剪贴板"
+  },
+  "shareLocalFallbackFail": {
+    "description": "提示：本地/二进制图片无法分享",
+    "message": "本地图片无法分享"
+  },
+  "shareOpenTip": {
+    "description": "打开分享页面后的提示，$1 为平台名称",
+    "message": "已打开$1$，请登录后发布",
+    "placeholders": {
+      "1": {
+        "content": "$1",
+        "example": "微博"
+      }
+    }
+  },
+  "sharePanelTitle": {
+    "description": "分享面板标题",
+    "message": "分享图片"
+  },
+  "shareTools": {
+    "description": "分享分组标题：工具（复制链接/图片）",
+    "message": "工具"
+  },
+  "shareplatform_copy_image": {
+    "description": "分享工具名称：复制图片到剪贴板",
+    "message": "复制图片"
+  },
+  "shareplatform_copy_link": {
+    "description": "分享工具名称：复制图片链接",
+    "message": "复制链接"
+  },
+  "shareplatform_douban": {
+    "description": "分享平台名称：豆瓣",
+    "message": "豆瓣"
+  },
+  "shareplatform_douyin": {
+    "description": "分享平台名称：抖音",
+    "message": "抖音"
+  },
+  "shareplatform_email": {
+    "description": "分享平台名称：邮件",
+    "message": "邮件"
+  },
+  "shareplatform_facebook": {
+    "description": "分享平台名称：Facebook",
+    "message": "Facebook"
+  },
+  "shareplatform_linkedin": {
+    "description": "分享平台名称：LinkedIn",
+    "message": "LinkedIn"
+  },
+  "shareplatform_pinterest": {
+    "description": "分享平台名称：Pinterest",
+    "message": "Pinterest"
+  },
+  "shareplatform_qq": {
+    "description": "分享平台名称：QQ",
+    "message": "QQ"
+  },
+  "shareplatform_qzone": {
+    "description": "分享平台名称：QQ空间",
+    "message": "QQ空间"
+  },
+  "shareplatform_reddit": {
+    "description": "分享平台名称：Reddit",
+    "message": "Reddit"
+  },
+  "shareplatform_telegram": {
+    "description": "分享平台名称：Telegram",
+    "message": "Telegram"
+  },
+  "shareplatform_tieba": {
+    "description": "分享平台名称：百度贴吧",
+    "message": "百度贴吧"
+  },
+  "shareplatform_twitter": {
+    "description": "分享平台名称：X (Twitter)",
+    "message": "X"
+  },
+  "shareplatform_wechat": {
+    "description": "分享平台名称：微信",
+    "message": "微信"
+  },
+  "shareplatform_weibo": {
+    "description": "分享平台名称：微博",
+    "message": "微博"
+  },
+  "shareplatform_whatsapp": {
+    "description": "分享平台名称：WhatsApp",
+    "message": "WhatsApp"
+  },
+  "showImageTitle": {
+    "description": "显示图片提示文本开关标签",
+    "message": "显示图片提示文本:"
+  },
+  "showImageTitleDesc": {
+    "description": "显示图片提示文本的描述",
+    "message": "在幻灯片中显示图片的 alt 文本作为提示"
+  },
+  "showImageTitleLabel": {
+    "description": "标签：显示图片提示文本",
+    "message": "显示图片提示文本"
+  },
+  "showcaseTitle": {
+    "description": "橱窗标题，带数量占位符",
+    "message": "图片橱窗 ($1张)",
+    "placeholders": {
+      "1": {
+        "content": "$1",
+        "example": "10"
+      }
+    }
+  },
+  "showcaseView": {
+    "description": "按钮工具提示",
+    "message": "橱窗视图 (C)"
+  },
+  "slideInterval": {
+    "description": "轮播间隔输入框标签",
+    "message": "轮播间隔 (秒):"
+  },
+  "slideIntervalDesc": {
+    "description": "轮播间隔设置的描述",
+    "message": "自动播放切换间隔，1-10 秒"
+  },
+  "slideIntervalLabel": {
+    "description": "标签：轮播间隔",
+    "message": "轮播间隔 (秒)"
+  },
+  "slideshowClosed": {
+    "description": "日志消息",
+    "message": "幻灯片已关闭"
+  },
+  "slideshowDisabled": {
+    "description": "状态文本：已禁用",
+    "message": "已禁用"
+  },
+  "slideshowEnabled": {
+    "description": "状态文本：已启用",
+    "message": "已启用"
+  },
+  "slideshowOpened": {
+    "description": "日志消息",
+    "message": "幻灯片已打开"
+  },
+  "source": {
+    "description": "表格标题：来源",
+    "message": "来源"
+  },
+  "sourceLabel": {
+    "description": "标签：来源",
+    "message": "来源"
+  },
+  "status": {
+    "description": "表格标题：状态",
+    "message": "状态"
+  },
+  "statusDisabled": {
+    "description": "状态文本",
+    "message": "扩展已禁用"
+  },
+  "statusEnabled": {
+    "description": "状态文本",
+    "message": "扩展已启用"
+  },
+  "statusExcluded": {
+    "description": "状态文本",
+    "message": "扩展已排除"
+  },
+  "tabDomain": {
+    "description": "域名设置标签",
+    "message": "域名设置"
+  },
+  "tabExclusion": {
+    "description": "排除规则标签",
+    "message": "排除规则"
+  },
+  "tabGlobal": {
+    "description": "全局设置标签",
+    "message": "全局设置"
+  },
+  "tabPage": {
+    "description": "页面设置标签",
+    "message": "页面设置"
+  },
+  "thumbnailBar": {
+    "description": "按钮工具提示",
+    "message": "缩略图栏 (T)"
+  },
+  "toggleCurrentPage": {
+    "description": "按钮工具提示",
+    "message": "点击切换当前页面的幻灯片功能开关"
+  },
+  "uiBehavior": {
+    "description": "区域标题：界面行为",
+    "message": "界面行为"
+  },
+  "unsupportedPage": {
+    "description": "错误消息",
+    "message": "当前页面不支持此功能（无法注入内容脚本）\n\n支持的页面：\n- http:// 开头的网页\n- https:// 开头的网页\n- file:// 开头的本地页面"
+  },
+  "updateTime": {
+    "description": "表格标题：更新时间",
+    "message": "更新时间"
+  },
+  "useGlobalSetting": {
+    "description": "状态文本：使用全局设置",
+    "message": "使用全局设置"
+  },
+  "zoomFitHeight": {
+    "description": "缩放模式：高度自适应",
+    "message": "高度自适应"
+  },
+  "zoomFitHeightTooltip": {
+    "description": "缩放模式工具提示",
+    "message": "高度自适应：高度适应屏幕，高度等于屏幕高度"
+  },
+  "zoomFitWidth": {
+    "description": "缩放模式：宽度自适应",
+    "message": "宽度自适应"
+  },
+  "zoomFitWidthTooltip": {
+    "description": "缩放模式工具提示",
+    "message": "宽度自适应：宽度适应屏幕，宽度等于屏幕宽度"
+  },
+  "zoomFitWindow": {
+    "description": "缩放模式：长边填满",
+    "message": "长边填满"
+  },
+  "zoomFitWindowTooltip": {
+    "description": "缩放模式工具提示",
+    "message": "长边填满：图片的最长边适应屏幕相应的大小"
+  },
+  "zoomMode": {
+    "description": "缩放模式下拉框标签",
+    "message": "缩放模式:"
+  },
+  "zoomModeDesc": {
+    "description": "缩放模式的描述",
+    "message": "控制图片在幻灯片中的显示方式"
+  },
+  "zoomModeLabel": {
+    "description": "标签：缩放模式",
+    "message": "缩放模式"
+  },
+  "zoomOriginalCapped": {
+    "description": "缩放模式：原始限制",
+    "message": "原始限制"
+  },
+  "zoomOriginalCappedTooltip": {
+    "description": "缩放模式工具提示",
+    "message": "原始限制：直接使用图片原始尺寸展示，但最大不超过长边填满模式的大小"
+  },
+  "zoomOriginalFull": {
+    "description": "缩放模式：原始无限制",
+    "message": "原始无限制"
+  },
+  "zoomOriginalFullTooltip": {
+    "description": "缩放模式工具提示",
+    "message": "原始无限制：直接使用图片的宽高展示图片大小"
+  }
+}

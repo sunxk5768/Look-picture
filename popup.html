@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>__MSG_popupTitle__</title>
+  <script type="module" crossorigin src="/url-matcher.js"></script>
+  <script type="module" crossorigin src="/main.js"></script>
+  <link rel="stylesheet" crossorigin href="/popup.css">
+</head>
+<body>
+  <div class="popup-container">
+    <h1><img src="icons/icon48.png" class="header-icon" alt="" /> __MSG_popupTitle__</h1>
+
+    <!-- 当前页面单独设置（最高优先级） -->
+    <div class="section" id="page-setting-section">
+      <div class="section-title">__MSG_currentPageSettings__</div>
+      <div class="page-setting-info">
+        <span class="page-url-text" id="currentPageUrl" title="">__MSG_loading__</span>
+        <label class="toggle-switch">
+          <input type="checkbox" id="currentPageToggle" checked>
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+      <div class="page-setting-actions">
+        <div class="status-text" id="pageSettingStatus">__MSG_slideshowEnabled__</div>
+        <button class="btn-clear-page" id="clearPageSetting" style="display:none;">__MSG_clearPageSetting__</button>
+      </div>
+      <button id="openSlideshowContinue" class="btn btn-primary">__MSG_openSlideshowContinue__</button>
+      <!-- 排除提示信息（排除状态下显示） -->
+      <div class="exclusion-hint" id="exclusionHint" style="display:none;">
+        <span id="exclusionHintText"></span>
+        <button class="btn-clear-exclusion" id="clearExclusionRule" title="__MSG_clearSetting__">×</button>
+      </div>
+    </div>
+
+    <!-- T5 预留：排除管理区域 -->
+    <div class="section" id="exclusion-section">
+      <div class="section-title">__MSG_exclusionManagement__</div>
+      <div class="exclusion-buttons">
+        <button class="btn btn-small" id="excludeDomain">__MSG_excludeDomain__</button>
+        <button class="btn btn-small" id="excludeUrl">__MSG_excludeUrl__</button>
+      </div>
+    </div>
+
+    <!-- 域名设置区域 -->
+    <div class="section" id="domain-settings-section">
+      <div class="section-title domain-settings-header">
+        <span>__MSG_domainSettings__</span>
+        <div class="domain-header-actions">
+          <button class="btn-clear-domain-item" id="clearAllDomainSettings" style="display:none;" title="__MSG_clearAllDomainSettings__">×</button>
+          <label class="toggle-switch" id="rememberPerDomain-toggle" title="__MSG_rememberPerDomain__">
+            <input type="checkbox" id="rememberPerDomain" checked>
+            <span class="toggle-slider"></span>
+          </label>
+        </div>
+      </div>
+
+      <!-- 域名启用开关，关闭记住域名设置时变灰禁用 -->
+      <div id="domain-enable-section">
+        <label class="setting-item">
+          <span>__MSG_enableSlideshow__</span>
+          <label class="toggle-switch">
+            <input type="checkbox" id="domainEnableToggle" checked>
+            <span class="toggle-slider"></span>
+          </label>
+        </label>
+        <div class="domain-setting-actions">
+          <div class="status-text" id="domainSettingStatus">__MSG_slideshowEnabled__</div>
+          <button class="btn-clear-page" id="clearDomainEnabled" style="display:none;">__MSG_clearSetting__</button>
+        </div>
+      </div>
+
+      <!-- 域名具体设置（缩放模式、间隔、自动隐藏），关闭记住域名设置时变灰禁用 -->
+      <div id="domain-controls">
+        <label class="setting-item">
+          <span>__MSG_zoomMode__</span>
+          <div class="setting-item-controls">
+            <select id="zoomMode" class="select-input">
+              <option value="fit-window" title="__MSG_zoomFitWindowTooltip__">__MSG_zoomFitWindow__</option>
+              <option value="original-capped" title="__MSG_zoomOriginalCappedTooltip__">__MSG_zoomOriginalCapped__</option>
+              <option value="original-full" title="__MSG_zoomOriginalFullTooltip__">__MSG_zoomOriginalFull__</option>
+              <option value="fit-width" title="__MSG_zoomFitWidthTooltip__">__MSG_zoomFitWidth__</option>
+              <option value="fit-height" title="__MSG_zoomFitHeightTooltip__">__MSG_zoomFitHeight__</option>
+            </select>
+            <button class="btn-clear-domain-item" id="clearDomainZoomMode" style="display:none;" title="__MSG_clearSetting__">×</button>
+          </div>
+        </label>
+
+        <label class="setting-item">
+          <span>__MSG_slideInterval__</span>
+          <div class="setting-item-controls">
+            <input type="number" id="domainSlideInterval" value="3" min="1" max="10">
+            <button class="btn-clear-domain-item" id="clearDomainSlideInterval" style="display:none;" title="__MSG_clearSetting__">×</button>
+          </div>
+        </label>
+
+        <label class="setting-item">
+          <span>__MSG_autoHideUI__</span>
+          <div class="setting-item-controls">
+            <label class="toggle-switch">
+              <input type="checkbox" id="domainAutoHideUI">
+              <span class="toggle-slider"></span>
+            </label>
+            <button class="btn-clear-domain-item" id="clearDomainAutoHideUI" style="display:none;" title="__MSG_clearSetting__">×</button>
+          </div>
+        </label>
+
+        <!-- 隐藏延迟选项：仅当"自动隐藏UI"开启时显示 -->
+        <div id="domainAutoHideDelay-section" style="display:none;">
+          <label class="setting-item">
+            <span>__MSG_autoHideDelay__</span>
+            <div class="setting-item-controls">
+              <input type="number" id="domainAutoHideDelay" value="3" min="1" max="10">
+              <button class="btn-clear-domain-item" id="clearDomainAutoHideDelay" style="display:none;" title="__MSG_clearSetting__">×</button>
+            </div>
+          </label>
+        </div>
+
+        <label class="setting-item">
+          <span>__MSG_showImageTitle__</span>
+          <div class="setting-item-controls">
+            <label class="toggle-switch">
+              <input type="checkbox" id="domainShowImageTitle">
+              <span class="toggle-slider"></span>
+            </label>
+            <button class="btn-clear-domain-item" id="clearDomainShowImageTitle" style="display:none;" title="__MSG_clearSetting__">×</button>
+          </div>
+        </label>
+
+        <!-- 看漫画模式：启用开关 -->
+        <label class="setting-item">
+          <span>__MSG_enableComicMode__</span>
+          <div class="setting-item-controls">
+            <label class="toggle-switch">
+              <input type="checkbox" id="domainComicMode">
+              <span class="toggle-slider"></span>
+            </label>
+            <button class="btn-clear-domain-item" id="clearDomainComicMode" style="display:none;" title="__MSG_clearSetting__">×</button>
+          </div>
+        </label>
+
+        <!-- 看漫画模式：移动方向（仅在启用看漫画模式后显示，可点击选择，悬浮用浏览器原生 title 显示说明） -->
+        <div class="setting-item setting-item-column comic-sub-option" id="comicPanSection" style="display:none;">
+          <div class="comic-sub-option-header">
+            <span>__MSG_comicPanModeLabel__</span>
+            <button class="btn-clear-domain-item" id="clearDomainComicPanMode" style="display:none;" title="__MSG_clearSetting__">×</button>
+          </div>
+          <div class="comic-pan-grid" id="comicPanGrid">
+            <button class="comic-diagram" data-mode="vertical" title="__MSG_comicPanVerticalTip__">
+              <span class="comic-diagram-preview" data-mode="vertical"></span>
+            </button>
+            <button class="comic-diagram" data-mode="horizontal-ltr" title="__MSG_comicPanHorizontalLtrTip__">
+              <span class="comic-diagram-preview" data-mode="horizontal-ltr"></span>
+            </button>
+            <button class="comic-diagram" data-mode="horizontal-rtl" title="__MSG_comicPanHorizontalRtlTip__">
+              <span class="comic-diagram-preview" data-mode="horizontal-rtl"></span>
+            </button>
+            <button class="comic-diagram" data-mode="zigzag-ltr" title="__MSG_comicPanZigzagLtrTip__">
+              <span class="comic-diagram-preview" data-mode="zigzag-ltr"></span>
+            </button>
+            <button class="comic-diagram" data-mode="zigzag-rtl" title="__MSG_comicPanZigzagRtlTip__">
+              <span class="comic-diagram-preview" data-mode="zigzag-rtl"></span>
+            </button>
+            <button class="comic-diagram" data-mode="read-ltr" title="__MSG_comicPanReadLtrTip__">
+              <span class="comic-diagram-preview" data-mode="read-ltr"></span>
+            </button>
+            <button class="comic-diagram" data-mode="read-rtl" title="__MSG_comicPanReadRtlTip__">
+              <span class="comic-diagram-preview" data-mode="read-rtl"></span>
+            </button>
+          </div>
+        </div>
+
+        <!-- 看漫画模式：初始缩放 -->
+        <label class="setting-item comic-sub-option" id="comicZoomSetting" style="display:none;">
+          <span>__MSG_comicZoomLabel__</span>
+          <div class="setting-item-controls">
+            <input type="number" id="domainComicZoom" value="100" min="20" max="1600">
+            <button class="btn-clear-domain-item" id="clearDomainComicZoom" style="display:none;" title="__MSG_clearSetting__">×</button>
+          </div>
+        </label>
+
+        <!-- 看漫画模式：平滑移动开关 -->
+        <label class="setting-item comic-sub-option" id="comicSmoothSetting" style="display:none;" title="__MSG_comicSmoothTip__">
+          <span>__MSG_comicSmoothLabel__</span>
+          <div class="setting-item-controls">
+            <label class="toggle-switch">
+              <input type="checkbox" id="domainComicSmooth">
+              <span class="toggle-slider"></span>
+            </label>
+            <button class="btn-clear-domain-item" id="clearDomainComicSmooth" style="display:none;" title="__MSG_clearSetting__">×</button>
+          </div>
+        </label>
+
+        <!-- 看漫画模式：垂直方向预留比例 -->
+        <label class="setting-item comic-sub-option" id="comicKeepVerticalSetting" style="display:none;" title="__MSG_comicKeepVerticalTip__">
+          <span>__MSG_comicKeepVerticalLabel__</span>
+          <div class="setting-item-controls">
+            <input type="number" id="domainComicKeepVertical" value="10" min="0" max="50" step="5">
+            <button class="btn-clear-domain-item" id="clearDomainComicKeepVertical" style="display:none;" title="__MSG_clearSetting__">×</button>
+          </div>
+        </label>
+
+        <!-- 看漫画模式：水平方向预留比例 -->
+        <label class="setting-item comic-sub-option" id="comicKeepHorizontalSetting" style="display:none;" title="__MSG_comicKeepHorizontalTip__">
+          <span>__MSG_comicKeepHorizontalLabel__</span>
+          <div class="setting-item-controls">
+            <input type="number" id="domainComicKeepHorizontal" value="10" min="0" max="50" step="5">
+            <button class="btn-clear-domain-item" id="clearDomainComicKeepHorizontal" style="display:none;" title="__MSG_clearSetting__">×</button>
+          </div>
+        </label>
+      </div>
+    </div>
+
+    <div class="info" id="statusInfo" style="display:none;">
+      <p id="statusText"></p>
+      <p id="statusHint"></p>
+    </div>
+
+    <button id="detectSelectorBtn" class="btn btn-outline">__MSG_detectSelector__</button>
+    <button id="openOptions" class="btn">__MSG_openAdvancedSettings__</button>
+  </div>
+</body>
+</html>

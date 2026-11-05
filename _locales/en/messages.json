@@ -1,0 +1,1220 @@
+{
+  "actions": {
+    "description": "Table header: actions",
+    "message": "Actions"
+  },
+  "addDomain": {
+    "description": "Button label: add domain",
+    "message": "Add Domain"
+  },
+  "addDomainErrorEmpty": {
+    "description": "Error message: empty domain",
+    "message": "Please enter a domain"
+  },
+  "addDomainErrorExists": {
+    "description": "Error message: domain already exists",
+    "message": "This domain already exists"
+  },
+  "addDomainHint": {
+    "description": "Dialog hint text",
+    "message": "After entering the domain, you can configure image filter settings. Settings are saved immediately upon creation."
+  },
+  "addDomainHintText": {
+    "description": "Hint text for empty state",
+    "message": "Click \"Add Domain\" button to manually add domain settings"
+  },
+  "addDomainSettings": {
+    "description": "Dialog title: add domain settings",
+    "message": "Add Domain Settings"
+  },
+  "addExclusionRule": {
+    "description": "Dialog title: add exclusion rule",
+    "message": "Add Exclusion Rule"
+  },
+  "addRule": {
+    "description": "Button label: add rule",
+    "message": "Add Rule"
+  },
+  "allImages": {
+    "description": "Preset label: all images",
+    "message": "All Images"
+  },
+  "allImagesButton": {
+    "description": "Button: all images",
+    "message": "All Images"
+  },
+  "allImagesDesc": {
+    "description": "Preset description: all images",
+    "message": "Select all img tags on the page"
+  },
+  "appliedSelector": {
+    "description": "Success message with domain, selector, and count placeholders",
+    "message": "Applied selector to domain: $1&lt;br&gt;&lt;code&gt;$2&lt;/code&gt;&lt;br&gt;Matching images: $3",
+    "placeholders": {
+      "1": {
+        "content": "$1",
+        "example": "example.com"
+      },
+      "2": {
+        "content": "$2",
+        "example": ".image"
+      },
+      "3": {
+        "content": "$3",
+        "example": "5"
+      }
+    }
+  },
+  "applyToDomain": {
+    "description": "Button label",
+    "message": "Apply to Current Domain"
+  },
+  "articleImages": {
+    "description": "Preset label: article images",
+    "message": "Article Images"
+  },
+  "articleImagesDesc": {
+    "description": "Preset description: article images",
+    "message": "Common article content area image selectors"
+  },
+  "autoDomainSource": {
+    "description": "Source option: domain exclusion",
+    "message": "Domain Exclusion"
+  },
+  "autoHideDelay": {
+    "description": "Label for auto-hide delay input",
+    "message": "Hide Delay (seconds):"
+  },
+  "autoHideDelayDesc": {
+    "description": "Description for auto-hide delay",
+    "message": "1-10 seconds"
+  },
+  "autoHideDelayLabel": {
+    "description": "Label: hide delay",
+    "message": "Hide Delay (seconds)"
+  },
+  "autoHideDisabled": {
+    "description": "Toggle tooltip",
+    "message": "Auto-hide disabled, click to enable"
+  },
+  "autoHideEnabled": {
+    "description": "Toggle tooltip",
+    "message": "Auto-hide enabled, click to disable"
+  },
+  "autoHideUI": {
+    "description": "Label for auto-hide UI toggle",
+    "message": "Auto-hide UI:"
+  },
+  "autoHideUIDesc": {
+    "description": "Description for auto-hide UI",
+    "message": "Auto-hide control bar after specified seconds of inactivity"
+  },
+  "autoHideUILabel": {
+    "description": "Label: auto-hide UI",
+    "message": "Auto-hide UI"
+  },
+  "autoUrlSource": {
+    "description": "Source option: URL exclusion",
+    "message": "URL Exclusion"
+  },
+  "avatarImages": {
+    "description": "Preset label: avatar images",
+    "message": "Avatar Images"
+  },
+  "avatarImagesDesc": {
+    "description": "Preset description: avatar images",
+    "message": "Common avatar image selectors"
+  },
+  "basicSettings": {
+    "description": "Section title: basic settings",
+    "message": "Basic Settings"
+  },
+  "cancel": {
+    "description": "Button label",
+    "message": "Cancel"
+  },
+  "cannotGetTab": {
+    "description": "Error message",
+    "message": "Cannot get current tab"
+  },
+  "cannotGetUrl": {
+    "description": "Error message",
+    "message": "Cannot get page URL"
+  },
+  "clearAll": {
+    "description": "Button label: clear all",
+    "message": "Clear All"
+  },
+  "clearAllDomainSettings": {
+    "description": "Button label: clear all",
+    "message": "Clear All Domain Settings"
+  },
+  "clearPageSetting": {
+    "description": "Button label",
+    "message": "Clear Page Setting"
+  },
+  "clearSetting": {
+    "description": "Button label",
+    "message": "Clear Setting"
+  },
+  "clickImageToStart": {
+    "description": "Hint text",
+    "message": "Click on an image to start slideshow"
+  },
+  "clickImageToStartWithSource": {
+    "description": "Hint text with source placeholder",
+    "message": "Click on an image to start slideshow ($1)",
+    "placeholders": {
+      "1": {
+        "content": "$1",
+        "example": "Global Setting"
+      }
+    }
+  },
+  "closeEsc": {
+    "description": "Button tooltip",
+    "message": "Close (Esc)"
+  },
+  "closeShowcase": {
+    "description": "Button tooltip",
+    "message": "Close Showcase"
+  },
+  "comicAutoMoveOff": {
+    "description": "Comic auto-move paused toast",
+    "message": "Auto-move paused"
+  },
+  "comicAutoMoveOn": {
+    "description": "Comic auto-move enabled toast",
+    "message": "Auto-move enabled"
+  },
+  "comicEnterToast": {
+    "description": "Toast shown when entering comic reading mode",
+    "message": "Comic Reading Mode: scroll to zoom, drag to pan. Auto-move starts when auto-play is on."
+  },
+  "comicExitToast": {
+    "description": "Toast shown when exiting comic reading mode",
+    "message": "Exited Comic Reading Mode"
+  },
+  "comicKeepHorizontal": {
+    "description": "Horizontal overlap field label in domain settings",
+    "message": "Horizontal Overlap"
+  },
+  "comicKeepHorizontalLabel": {
+    "description": "Comic reading mode horizontal overlap ratio label",
+    "message": "Horizontal Overlap (%):"
+  },
+  "comicKeepHorizontalTip": {
+    "description": "Comic reading mode horizontal overlap ratio description",
+    "message": "Overlap ratio between horizontally adjacent screens when jumping screen by screen (0 = no overlap, 10 = keep 10% of the previous screen)."
+  },
+  "comicKeepVertical": {
+    "description": "Vertical overlap field label in domain settings",
+    "message": "Vertical Overlap"
+  },
+  "comicKeepVerticalLabel": {
+    "description": "Comic reading mode vertical overlap ratio label",
+    "message": "Vertical Overlap (%):"
+  },
+  "comicKeepVerticalTip": {
+    "description": "Comic reading mode vertical overlap ratio description",
+    "message": "Overlap ratio between vertically adjacent screens when jumping screen by screen (0 = no overlap, 10 = keep 10% of the previous screen)."
+  },
+  "comicMode": {
+    "description": "Comic mode field label in domain settings",
+    "message": "Comic Mode"
+  },
+  "comicModeSection": {
+    "description": "Comic reading mode settings section title",
+    "message": "Comic Reading Mode"
+  },
+  "comicPanHorizontalLtr": {
+    "description": "Comic pan direction: left to right",
+    "message": "Left to Right"
+  },
+  "comicPanHorizontalLtrTip": {
+    "description": "Left to right mode description",
+    "message": "Image starts at the very left and slowly pans right to the far right, then switches to the next image. Great for wide panoramas."
+  },
+  "comicPanHorizontalRtl": {
+    "description": "Comic pan direction: right to left",
+    "message": "Right to Left"
+  },
+  "comicPanHorizontalRtlTip": {
+    "description": "Right to left mode description",
+    "message": "Image starts at the very right and slowly pans left to the far left, then switches to the next image. Great for right-to-left wide images."
+  },
+  "comicPanMode": {
+    "description": "Pan direction field label in domain settings",
+    "message": "Pan Direction"
+  },
+  "comicPanModeLabel": {
+    "description": "Label for comic pan direction",
+    "message": "Pan Direction:"
+  },
+  "comicPanModeToast": {
+    "description": "Toast after changing pan direction, param 1 is the direction name",
+    "message": "Pan direction: $1$",
+    "placeholders": {
+      "1": {
+        "content": "$1",
+        "example": "Left"
+      }
+    }
+  },
+  "comicPanReadLtr": {
+    "description": "Comic pan direction: row reading left-to-right",
+    "message": "Row Reading (Top-Left → Bottom-Right)"
+  },
+  "comicPanReadLtrTip": {
+    "description": "Row reading left-to-right mode description",
+    "message": "The image is divided into rows of screen height. Each row is read left-to-right; at the row end it jumps instantly to the next row's left side, continuing downward until the last row is reached, then switches to the next image. Great for left-to-right comics."
+  },
+  "comicPanReadRtl": {
+    "description": "Comic pan direction: row reading right-to-left",
+    "message": "Row Reading (Top-Right → Bottom-Left)"
+  },
+  "comicPanReadRtlTip": {
+    "description": "Row reading right-to-left mode description",
+    "message": "The image is divided into rows of screen height. Each row is read right-to-left; at the row end it jumps instantly to the next row's right side, continuing downward until the last row is reached, then switches to the next image. Great for right-to-left comics (e.g. manga)."
+  },
+  "comicPanVertical": {
+    "description": "Comic pan direction: top to bottom",
+    "message": "Top to Bottom"
+  },
+  "comicPanVerticalTip": {
+    "description": "Top to bottom mode description",
+    "message": "Image starts at the very top and slowly pans down to the bottom, then switches to the next image. Great for tall portraits."
+  },
+  "comicPanZigzagLtr": {
+    "description": "Comic pan direction: snake fold, first row left to right",
+    "message": "Snake (Left-First)"
+  },
+  "comicPanZigzagLtrTip": {
+    "description": "Snake (left-first) mode description",
+    "message": "Snakes through the image: the first row goes left→right, then folds back and the next row goes right→left, alternating row by row down to the bottom-right, then switches to the next image."
+  },
+  "comicPanZigzagRtl": {
+    "description": "Comic pan direction: snake fold, first row right to left",
+    "message": "Snake (Right-First)"
+  },
+  "comicPanZigzagRtlTip": {
+    "description": "Snake (right-first) mode description",
+    "message": "Snakes through the image: the first row goes right→left, then folds back and the next row goes left→right, alternating row by row down to the bottom-left, then switches to the next image."
+  },
+  "comicSmooth": {
+    "description": "Smooth move field label in domain settings",
+    "message": "Smooth Move"
+  },
+  "comicSmoothLabel": {
+    "description": "Comic reading mode smooth move toggle label",
+    "message": "Smooth Move:"
+  },
+  "comicSmoothTip": {
+    "description": "Comic reading mode smooth move description",
+    "message": "When on, moves smoothly along the full path. When off, jumps screen by screen, preserving the reading order but showing one screen at a time."
+  },
+  "comicToggleTitle": {
+    "description": "Comic mode button tooltip",
+    "message": "Comic Reading Mode (click to toggle, right-click to change pan direction)"
+  },
+  "comicZoom": {
+    "description": "Zoom field label in domain settings",
+    "message": "Zoom"
+  },
+  "comicZoomInTitle": {
+    "description": "Comic zoom in button tooltip",
+    "message": "Zoom In (Comic Reading Mode)"
+  },
+  "comicZoomLabel": {
+    "description": "Label for comic zoom percentage",
+    "message": "Zoom (%):"
+  },
+  "comicZoomOutTitle": {
+    "description": "Comic zoom out button tooltip",
+    "message": "Zoom Out (Comic Reading Mode)"
+  },
+  "confirmAdd": {
+    "description": "Button label: confirm add",
+    "message": "Confirm Add"
+  },
+  "contextDetectSelectorImage": {
+    "description": "Context menu item",
+    "message": "Detect Selector on Image"
+  },
+  "contextDetectSelectorPage": {
+    "description": "Context menu item",
+    "message": "🎯 Detect Selector"
+  },
+  "contextExcludeDomain": {
+    "description": "Context menu item",
+    "message": "Exclude This Domain"
+  },
+  "contextExcludeUrl": {
+    "description": "Context menu item",
+    "message": "Exclude This URL"
+  },
+  "contextMenuTitle": {
+    "description": "Context menu title",
+    "message": "Image Slideshow Viewer"
+  },
+  "contextOpenContinue": {
+    "description": "Context menu item",
+    "message": "Open Slideshow (Continue)"
+  },
+  "contextOpenSettings": {
+    "description": "Context menu item",
+    "message": "Open Settings"
+  },
+  "createdTime": {
+    "description": "Table header: created time",
+    "message": "Created Time"
+  },
+  "currentPage": {
+    "description": "Status source",
+    "message": "Current Page"
+  },
+  "currentPageSettings": {
+    "description": "Section title for current page settings",
+    "message": "Current Page Settings (Highest Priority)"
+  },
+  "custom": {
+    "description": "Label for custom input",
+    "message": "Custom..."
+  },
+  "customFields": {
+    "description": "Table header: custom fields",
+    "message": "Custom Fields"
+  },
+  "decreaseInterval": {
+    "description": "Button tooltip",
+    "message": "Decrease Interval"
+  },
+  "detectSelector": {
+    "description": "Button label",
+    "message": "🎯 Detect Selector"
+  },
+  "detectSelectorHint": {
+    "description": "Detection mode hint",
+    "message": "Click any image on the page to automatically detect its selector"
+  },
+  "detectedSelector": {
+    "description": "Detection result title",
+    "message": "Detected Selector:"
+  },
+  "disabledStatus": {
+    "description": "Status text: disabled",
+    "message": "Disabled"
+  },
+  "disabledWithSource": {
+    "description": "Status hint with source placeholder",
+    "message": "Slideshow disabled on current page ($1)",
+    "placeholders": {
+      "1": {
+        "content": "$1",
+        "example": "Domain Setting"
+      }
+    }
+  },
+  "domain": {
+    "description": "Table header: domain",
+    "message": "Domain"
+  },
+  "domainEnableTooltip": {
+    "description": "Domain enable toggle tooltip",
+    "message": "Enable/disable slideshow for this domain"
+  },
+  "domainLabel": {
+    "description": "Label: domain",
+    "message": "Domain"
+  },
+  "domainSetting": {
+    "description": "Status source",
+    "message": "Domain Setting"
+  },
+  "domainSettings": {
+    "description": "Section title",
+    "message": "Domain Settings"
+  },
+  "downloadAll": {
+    "description": "Button title: download all images, $1 is the count",
+    "message": "Download All ($1$)",
+    "placeholders": {
+      "1": {
+        "content": "$1",
+        "example": "10"
+      }
+    }
+  },
+  "downloadAllShort": {
+    "description": "Short label for batch download button",
+    "message": "Download All"
+  },
+  "downloadComplete": {
+    "description": "Toast: all images downloaded, $1 is the count",
+    "message": "Downloaded $1$ images",
+    "placeholders": {
+      "1": {
+        "content": "$1",
+        "example": "10"
+      }
+    }
+  },
+  "downloadFailed": {
+    "description": "Toast: download failed, $1 is the error message",
+    "message": "Download failed: $1$",
+    "placeholders": {
+      "1": {
+        "content": "$1",
+        "example": "network error"
+      }
+    }
+  },
+  "downloadImage": {
+    "description": "Button title: download current image",
+    "message": "Download Image"
+  },
+  "downloadPartial": {
+    "description": "Toast: partial download result",
+    "message": "Downloaded $1$ images, $2$ failed",
+    "placeholders": {
+      "1": {
+        "content": "$1",
+        "example": "8"
+      },
+      "2": {
+        "content": "$2",
+        "example": "2"
+      }
+    }
+  },
+  "downloadStarted": {
+    "description": "Toast: single image download started",
+    "message": "Download started"
+  },
+  "downloadingAll": {
+    "description": "Toast: downloading all images, $1 is the count",
+    "message": "Downloading $1$ images...",
+    "placeholders": {
+      "1": {
+        "content": "$1",
+        "example": "10"
+      }
+    }
+  },
+  "editDomainHint": {
+    "description": "Dialog hint text",
+    "message": "Modify image viewer settings for this domain. Unset fields will use global defaults."
+  },
+  "editDomainSettings": {
+    "description": "Dialog title with domain placeholder",
+    "message": "Edit Domain Settings: $1",
+    "placeholders": {
+      "1": {
+        "content": "$1",
+        "example": "example.com"
+      }
+    }
+  },
+  "enableComicMode": {
+    "description": "Label for enable comic reading mode toggle",
+    "message": "Enable Comic Reading Mode:"
+  },
+  "enableSlideshow": {
+    "description": "Label for enable slideshow toggle",
+    "message": "Enable Slideshow"
+  },
+  "enableSlideshowDesc": {
+    "description": "Description for enable slideshow setting",
+    "message": "Master switch, all websites disable slideshow when turned off"
+  },
+  "enableSlideshowLabel": {
+    "description": "Label: enable slideshow",
+    "message": "Enable Slideshow"
+  },
+  "enabledStatus": {
+    "description": "Status text: enabled",
+    "message": "Enabled"
+  },
+  "excludeDomain": {
+    "description": "Button label",
+    "message": "Exclude This Domain"
+  },
+  "excludeUrl": {
+    "description": "Button label",
+    "message": "Exclude This URL"
+  },
+  "excluded": {
+    "description": "Status text: excluded",
+    "message": "Excluded"
+  },
+  "excludedByRule": {
+    "description": "Exclusion hint with source and pattern placeholders",
+    "message": "Excluded by \"$1\" rule: $2",
+    "placeholders": {
+      "1": {
+        "content": "$1",
+        "example": "domain"
+      },
+      "2": {
+        "content": "$2",
+        "example": "example.com"
+      }
+    }
+  },
+  "exclusionManagement": {
+    "description": "Section title",
+    "message": "Exclusion Management"
+  },
+  "exclusionRulesHint": {
+    "description": "Hint text for empty state",
+    "message": "After adding exclusion rules, matching pages will not enable slideshow function"
+  },
+  "exitFullscreen": {
+    "description": "Button tooltip",
+    "message": "Exit Fullscreen (Esc)"
+  },
+  "extensionDescription": {
+    "description": "Extension description",
+    "message": "View images in slideshow mode by clicking on webpage images"
+  },
+  "extensionName": {
+    "description": "Extension name",
+    "message": "图观"
+  },
+  "filter": {
+    "description": "Badge text: filter",
+    "message": "Filter"
+  },
+  "filterBadge": {
+    "description": "Badge text: filter",
+    "message": "Filter"
+  },
+  "fullScreen": {
+    "description": "Button tooltip",
+    "message": "Fullscreen"
+  },
+  "globalDisabled": {
+    "description": "Status text: global disabled",
+    "message": "Globally Disabled"
+  },
+  "globalSetting": {
+    "description": "Status source",
+    "message": "Global Setting"
+  },
+  "hide": {
+    "description": "Toggle label",
+    "message": "Hide"
+  },
+  "ignore": {
+    "description": "Button label",
+    "message": "Ignore"
+  },
+  "image": {
+    "description": "Image label with index placeholder",
+    "message": "Image $1",
+    "placeholders": {
+      "1": {
+        "content": "$1",
+        "example": "1"
+      }
+    }
+  },
+  "imageDisplay": {
+    "description": "Section title: image display",
+    "message": "Image Display"
+  },
+  "imageFilterSettings": {
+    "description": "Section title: image filter settings",
+    "message": "Image Filter Settings"
+  },
+  "imageSelector": {
+    "description": "Label for image selector",
+    "message": "Image Selector"
+  },
+  "imageSelectorDesc": {
+    "description": "Description for image selector",
+    "message": "CSS selector for filtering images to display"
+  },
+  "imageSelectorLabel": {
+    "description": "Label: image selector",
+    "message": "Image Selector"
+  },
+  "imageSettings": {
+    "description": "Table header: image settings",
+    "message": "Image Settings"
+  },
+  "imageSettingsLabel": {
+    "description": "Label: image settings",
+    "message": "Image Settings"
+  },
+  "increaseInterval": {
+    "description": "Button tooltip",
+    "message": "Increase Interval"
+  },
+  "injectionConnectionFailed": {
+    "description": "Error message",
+    "message": "Connection failed after injection, please refresh and retry"
+  },
+  "injectionFailed": {
+    "description": "Error message with details placeholder",
+    "message": "Cannot inject content script into current page\\n\\nError details: $1\\n\\nPlease try:\\n1. Refresh the page (F5)\\n2. Reload the extension in chrome://extensions/",
+    "placeholders": {
+      "1": {
+        "content": "$1",
+        "example": "error details"
+      }
+    }
+  },
+  "intervalTooltip": {
+    "description": "Interval button tooltip",
+    "message": "Slide interval: click to switch, double-click to customize, right-click to select"
+  },
+  "loading": {
+    "description": "Loading text",
+    "message": "Loading..."
+  },
+  "manualSource": {
+    "description": "Source option: manual",
+    "message": "Manual"
+  },
+  "matchCount": {
+    "description": "Match count with placeholder",
+    "message": "Matching images: $1",
+    "placeholders": {
+      "1": {
+        "content": "$1",
+        "example": "5"
+      }
+    }
+  },
+  "matchPattern": {
+    "description": "Table header: match pattern",
+    "message": "Match Pattern"
+  },
+  "matchPatternDesc": {
+    "description": "Dialog description: match pattern",
+    "message": "Enter URL match pattern (supports wildcards * and **), e.g. *://*.example.com/*"
+  },
+  "minImageHeight": {
+    "description": "Label for min image height",
+    "message": "Min Image Height (px)"
+  },
+  "minImageHeightDesc": {
+    "description": "Description for min image height",
+    "message": "Images smaller than this height will be filtered"
+  },
+  "minImageHeightLabel": {
+    "description": "Label: min image height",
+    "message": "Min Image Height (px)"
+  },
+  "minImageWidth": {
+    "description": "Label for min image width",
+    "message": "Min Image Width (px)"
+  },
+  "minImageWidthDesc": {
+    "description": "Description for min image width",
+    "message": "Images smaller than this width will be filtered"
+  },
+  "minImageWidthLabel": {
+    "description": "Label: min image width",
+    "message": "Min Image Width (px)"
+  },
+  "nextImage": {
+    "description": "Button tooltip",
+    "message": "Next Image (→)"
+  },
+  "noDomainSettings": {
+    "description": "Empty state: no domain settings",
+    "message": "No domain settings"
+  },
+  "noExclusionRules": {
+    "description": "Empty state: no exclusion rules",
+    "message": "No exclusion rules"
+  },
+  "noImageFound": {
+    "description": "Error message",
+    "message": "No image found, please right-click on an image and try again"
+  },
+  "noImagesToDownload": {
+    "description": "Toast: no images available to download",
+    "message": "No images to download"
+  },
+  "noMatchImages": {
+    "description": "Toast message",
+    "message": "No matching images found on this page"
+  },
+  "noMatchingDomain": {
+    "description": "Empty state: no matching domain",
+    "message": "No matching domain"
+  },
+  "noMatchingPage": {
+    "description": "Empty state: no matching page",
+    "message": "No matching page"
+  },
+  "noMatchingRule": {
+    "description": "Empty state: no matching rule",
+    "message": "No matching rule"
+  },
+  "noPageSettings": {
+    "description": "Empty state: no page settings",
+    "message": "No page settings"
+  },
+  "notInitialized": {
+    "description": "Error message",
+    "message": "SlideshowViewer not initialized"
+  },
+  "openAdvancedSettings": {
+    "description": "Button label in popup",
+    "message": "Advanced Settings"
+  },
+  "openSlideshowContinue": {
+    "description": "Button label",
+    "message": "Open Slideshow (Continue)"
+  },
+  "openSlideshowFailed": {
+    "description": "Error message",
+    "message": "Failed to open slideshow: $1",
+    "placeholders": {
+      "1": {
+        "content": "$1",
+        "example": "error"
+      }
+    }
+  },
+  "operation": {
+    "description": "Table header: operation",
+    "message": "Operation"
+  },
+  "optionsHeading": {
+    "description": "Options page heading",
+    "message": "Advanced Settings"
+  },
+  "optionsSubtitle": {
+    "description": "Options page subtitle",
+    "message": "Image Slideshow Viewer"
+  },
+  "optionsTitle": {
+    "description": "Options page title",
+    "message": "Advanced Settings - Image Slideshow Viewer"
+  },
+  "pageSettingsHint": {
+    "description": "Hint text for empty state",
+    "message": "After toggling a page's switch in Popup, the record will be displayed here"
+  },
+  "pageUrl": {
+    "description": "Table header: page URL",
+    "message": "Page URL"
+  },
+  "playPause": {
+    "description": "Button tooltip",
+    "message": "Play/Pause (Space)"
+  },
+  "pleaseClickImage": {
+    "description": "Button text: please click image",
+    "message": "Please click on an image..."
+  },
+  "pleaseEnableInGlobal": {
+    "description": "Hint text",
+    "message": "Please enable in global settings"
+  },
+  "pleaseRefreshPage": {
+    "description": "Error message with steps",
+    "message": "Please follow these steps:\\n1. Click 'Reload' in chrome://extensions/\\n2. Refresh the current page (F5)\\n3. Click 'Detect Selector' again"
+  },
+  "popupTitle": {
+    "description": "Popup title",
+    "message": "Image Slideshow Viewer"
+  },
+  "prevImage": {
+    "description": "Button tooltip",
+    "message": "Previous Image (←)"
+  },
+  "rememberPerDomain": {
+    "description": "Label for remember per domain toggle",
+    "message": "Remember settings per domain"
+  },
+  "rememberPerDomainDesc": {
+    "description": "Description for remember per domain",
+    "message": "Save zoom mode, interval, etc. independently for different websites"
+  },
+  "restoreDefaults": {
+    "description": "Button label: restore defaults",
+    "message": "Restore Defaults"
+  },
+  "ruleAlreadyExists": {
+    "description": "Alert message",
+    "message": "This rule already exists!"
+  },
+  "ruleSourceAutoDomain": {
+    "description": "Rule source text",
+    "message": "Domain"
+  },
+  "ruleSourceAutoUrl": {
+    "description": "Rule source text",
+    "message": "URL"
+  },
+  "ruleSourceManual": {
+    "description": "Rule source text",
+    "message": "Manual"
+  },
+  "save": {
+    "description": "Button label: save",
+    "message": "Save"
+  },
+  "searchDomain": {
+    "description": "Placeholder: search domain",
+    "message": "Search domain..."
+  },
+  "searchPage": {
+    "description": "Placeholder: search page URL",
+    "message": "Search page URL..."
+  },
+  "searchRule": {
+    "description": "Placeholder: search exclusion rules",
+    "message": "Search exclusion rules..."
+  },
+  "second": {
+    "description": "Interval option with second placeholder",
+    "message": "$1 second",
+    "placeholders": {
+      "1": {
+        "content": "$1",
+        "example": "3"
+      }
+    }
+  },
+  "seconds": {
+    "description": "Interval display with seconds placeholder",
+    "message": "$1s",
+    "placeholders": {
+      "1": {
+        "content": "$1",
+        "example": "3"
+      }
+    }
+  },
+  "selectorPrefix": {
+    "description": "Selector prefix",
+    "message": "Selector: "
+  },
+  "shareClose": {
+    "description": "Share panel close button",
+    "message": "Close"
+  },
+  "shareCopiedImage": {
+    "description": "Toast: image copied to clipboard",
+    "message": "Image copied to clipboard"
+  },
+  "shareCopiedLink": {
+    "description": "Toast: image link copied to clipboard",
+    "message": "Image link copied"
+  },
+  "shareCopyFailed": {
+    "description": "Toast: failed to copy",
+    "message": "Copy failed"
+  },
+  "shareDomestic": {
+    "description": "Share section title: domestic (China) platforms",
+    "message": "Domestic"
+  },
+  "shareHint": {
+    "description": "Hint shown at bottom of share panel",
+    "message": "Some platforms require login in the new tab before posting"
+  },
+  "shareImage": {
+    "description": "Button title: share current image",
+    "message": "Share Image"
+  },
+  "shareImageCopiedOpenTab": {
+    "description": "Toast after copy image + open new tab (e.g. Telegram), $1 is platform name",
+    "message": "Image copied. Open $1$ and paste to share.",
+    "placeholders": {
+      "1": {
+        "content": "$1",
+        "example": "Telegram"
+      }
+    }
+  },
+  "shareImageFallbackLink": {
+    "description": "Toast: image copy failed, fell back to copying link",
+    "message": "Copy failed, link copied instead"
+  },
+  "shareInternational": {
+    "description": "Share section title: international platforms",
+    "message": "International"
+  },
+  "shareLinkCopiedOpenTab": {
+    "description": "Toast after copy link + open new tab (e.g. Tieba), $1 is platform name",
+    "message": "Image link copied. Open $1$ and paste the link when posting.",
+    "placeholders": {
+      "1": {
+        "content": "$1",
+        "example": "Tieba"
+      }
+    }
+  },
+  "shareLocalFallback": {
+    "description": "Toast: local/blob image cannot be shared, copied instead",
+    "message": "Local image cannot be shared, copied to clipboard"
+  },
+  "shareLocalFallbackFail": {
+    "description": "Toast: local/blob image cannot be shared",
+    "message": "Local image cannot be shared"
+  },
+  "shareOpenTip": {
+    "description": "Toast after opening share page, $1 is platform name",
+    "message": "Opened $1$, please login and post",
+    "placeholders": {
+      "1": {
+        "content": "$1",
+        "example": "Weibo"
+      }
+    }
+  },
+  "sharePanelTitle": {
+    "description": "Share panel header title",
+    "message": "Share Image"
+  },
+  "shareTools": {
+    "description": "Share section title: tools (copy link/image)",
+    "message": "Tools"
+  },
+  "shareplatform_copy_image": {
+    "description": "Share tool name: copy image to clipboard",
+    "message": "Copy Image"
+  },
+  "shareplatform_copy_link": {
+    "description": "Share tool name: copy image link",
+    "message": "Copy Link"
+  },
+  "shareplatform_douban": {
+    "description": "Share platform name: Douban",
+    "message": "Douban"
+  },
+  "shareplatform_douyin": {
+    "description": "Share platform name: Douyin (Chinese TikTok)",
+    "message": "Douyin"
+  },
+  "shareplatform_email": {
+    "description": "Share platform name: Email",
+    "message": "Email"
+  },
+  "shareplatform_facebook": {
+    "description": "Share platform name: Facebook",
+    "message": "Facebook"
+  },
+  "shareplatform_linkedin": {
+    "description": "Share platform name: LinkedIn",
+    "message": "LinkedIn"
+  },
+  "shareplatform_pinterest": {
+    "description": "Share platform name: Pinterest",
+    "message": "Pinterest"
+  },
+  "shareplatform_qq": {
+    "description": "Share platform name: QQ",
+    "message": "QQ"
+  },
+  "shareplatform_qzone": {
+    "description": "Share platform name: Qzone (QQ Zone)",
+    "message": "Qzone"
+  },
+  "shareplatform_reddit": {
+    "description": "Share platform name: Reddit",
+    "message": "Reddit"
+  },
+  "shareplatform_telegram": {
+    "description": "Share platform name: Telegram",
+    "message": "Telegram"
+  },
+  "shareplatform_tieba": {
+    "description": "Share platform name: Baidu Tieba",
+    "message": "Baidu Tieba"
+  },
+  "shareplatform_twitter": {
+    "description": "Share platform name: X (Twitter)",
+    "message": "X"
+  },
+  "shareplatform_wechat": {
+    "description": "Share platform name: WeChat",
+    "message": "WeChat"
+  },
+  "shareplatform_weibo": {
+    "description": "Share platform name: Weibo",
+    "message": "Weibo"
+  },
+  "shareplatform_whatsapp": {
+    "description": "Share platform name: WhatsApp",
+    "message": "WhatsApp"
+  },
+  "showImageTitle": {
+    "description": "Label for show image title toggle",
+    "message": "Show Image Title:"
+  },
+  "showImageTitleDesc": {
+    "description": "Description for show image title",
+    "message": "Display image alt text as tooltip in slideshow"
+  },
+  "showImageTitleLabel": {
+    "description": "Label: show image title",
+    "message": "Show Image Title"
+  },
+  "showcaseTitle": {
+    "description": "Showcase title with count placeholder",
+    "message": "Image Showcase ($1 images)",
+    "placeholders": {
+      "1": {
+        "content": "$1",
+        "example": "10"
+      }
+    }
+  },
+  "showcaseView": {
+    "description": "Button tooltip",
+    "message": "Showcase View (C)"
+  },
+  "slideInterval": {
+    "description": "Label for slide interval input",
+    "message": "Slide Interval (seconds):"
+  },
+  "slideIntervalDesc": {
+    "description": "Description for slide interval setting",
+    "message": "Auto-play switch interval, 1-10 seconds"
+  },
+  "slideIntervalLabel": {
+    "description": "Label: slide interval",
+    "message": "Slide Interval (seconds)"
+  },
+  "slideshowClosed": {
+    "description": "Log message",
+    "message": "Slideshow closed"
+  },
+  "slideshowDisabled": {
+    "description": "Status text: disabled",
+    "message": "Disabled"
+  },
+  "slideshowEnabled": {
+    "description": "Status text: enabled",
+    "message": "Enabled"
+  },
+  "slideshowOpened": {
+    "description": "Log message",
+    "message": "Slideshow opened"
+  },
+  "source": {
+    "description": "Table header: source",
+    "message": "Source"
+  },
+  "sourceLabel": {
+    "description": "Label: source",
+    "message": "Source"
+  },
+  "status": {
+    "description": "Table header: status",
+    "message": "Status"
+  },
+  "statusDisabled": {
+    "description": "Status text",
+    "message": "Extension Disabled"
+  },
+  "statusEnabled": {
+    "description": "Status text",
+    "message": "Extension Enabled"
+  },
+  "statusExcluded": {
+    "description": "Status text",
+    "message": "Extension Excluded"
+  },
+  "tabDomain": {
+    "description": "Tab label for domain settings",
+    "message": "Domain Settings"
+  },
+  "tabExclusion": {
+    "description": "Tab label for exclusion rules",
+    "message": "Exclusion Rules"
+  },
+  "tabGlobal": {
+    "description": "Tab label for global settings",
+    "message": "Global Settings"
+  },
+  "tabPage": {
+    "description": "Tab label for page settings",
+    "message": "Page Settings"
+  },
+  "thumbnailBar": {
+    "description": "Button tooltip",
+    "message": "Thumbnail Bar (T)"
+  },
+  "toggleCurrentPage": {
+    "description": "Button tooltip",
+    "message": "Toggle slideshow for current page"
+  },
+  "uiBehavior": {
+    "description": "Section title: UI behavior",
+    "message": "UI Behavior"
+  },
+  "unsupportedPage": {
+    "description": "Error message",
+    "message": "This page does not support this feature (content script cannot be injected)\\n\\nSupported pages:\\n- http:// web pages\\n- https:// web pages\\n- file:// local pages"
+  },
+  "updateTime": {
+    "description": "Table header: update time",
+    "message": "Update Time"
+  },
+  "useGlobalSetting": {
+    "description": "Status text: using global setting",
+    "message": "Using global setting"
+  },
+  "zoomFitHeight": {
+    "description": "Zoom mode: fit height",
+    "message": "Fit Height"
+  },
+  "zoomFitHeightTooltip": {
+    "description": "Zoom mode tooltip",
+    "message": "Fit Height: Height adapts to screen, height equals screen height"
+  },
+  "zoomFitWidth": {
+    "description": "Zoom mode: fit width",
+    "message": "Fit Width"
+  },
+  "zoomFitWidthTooltip": {
+    "description": "Zoom mode tooltip",
+    "message": "Fit Width: Width adapts to screen, width equals screen width"
+  },
+  "zoomFitWindow": {
+    "description": "Zoom mode: fit window",
+    "message": "Fit to Window"
+  },
+  "zoomFitWindowTooltip": {
+    "description": "Zoom mode tooltip",
+    "message": "Fit to Window: The longer side of the image fits the screen"
+  },
+  "zoomMode": {
+    "description": "Label for zoom mode select",
+    "message": "Zoom Mode:"
+  },
+  "zoomModeDesc": {
+    "description": "Description for zoom mode",
+    "message": "Control how images are displayed in slideshow"
+  },
+  "zoomModeLabel": {
+    "description": "Label: zoom mode",
+    "message": "Zoom Mode"
+  },
+  "zoomOriginalCapped": {
+    "description": "Zoom mode: original capped",
+    "message": "Original (Capped)"
+  },
+  "zoomOriginalCappedTooltip": {
+    "description": "Zoom mode tooltip",
+    "message": "Original (Capped): Display with original size, max not exceeding fit-to-window size"
+  },
+  "zoomOriginalFull": {
+    "description": "Zoom mode: original full",
+    "message": "Original (Full)"
+  },
+  "zoomOriginalFullTooltip": {
+    "description": "Zoom mode tooltip",
+    "message": "Original (Full): Display with original width and height without limit"
+  }
+}

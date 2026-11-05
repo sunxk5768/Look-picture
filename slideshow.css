@@ -1,0 +1,1548 @@
+/* 沉浸式看图样式 */
+
+/* 全局美化滚动条（深色主题下避免默认白色方块刺眼） */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.35) transparent;
+}
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.35);
+  border-radius: 4px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  transition: background-color 0.15s ease;
+}
+*::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(255, 255, 255, 0.55);
+}
+*::-webkit-scrollbar-thumb:active {
+  background-color: rgba(255, 255, 255, 0.7);
+}
+*::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+.slideshow-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.95);
+  z-index: 2147483647;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.slideshow-overlay.active {
+  opacity: 1;
+}
+
+.slideshow-container {
+  position: relative;
+  width: calc(100vw - 40px);
+  height: calc(100vh - 40px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 看漫画模式下所有位移由 JS 驱动，禁用 CSS 过渡，避免非平滑跳跃时出现动画拖影 */
+.comic-active .slideshow-image {
+  transition: none !important;
+}
+
+/* === 5 种缩放模式 === */
+
+/* fit-window: 长边填满窗口（由 JS 动态计算，无 CSS 约束） */
+.slideshow-image.zoom-fit-window {
+  border-radius: 4px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease;
+  user-select: none;
+}
+
+/* original-capped: 原始大小（由 JS 动态计算，最大不超过长边填满） */
+.slideshow-image.zoom-original-capped {
+  width: auto;
+  height: auto;
+  max-width: none;
+  max-height: none;
+  border-radius: 4px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease;
+  user-select: none;
+}
+
+/* original-full: 原始大小（无限制，溢出滚动） */
+.slideshow-image.zoom-original-full {
+  width: auto;
+  height: auto;
+  max-width: none;
+  max-height: none;
+  border-radius: 4px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease;
+  user-select: none;
+}
+
+/* 为 original-full 模式添加滚动支持 */
+.slideshow-overlay.zoom-original-full-mode .slideshow-container {
+  overflow: auto;
+}
+
+/* fit-width: 宽度填满 */
+.slideshow-image.zoom-fit-width {
+  width: 100%;
+  height: auto;
+  max-height: none;
+  border-radius: 4px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease;
+  user-select: none;
+}
+
+/* fit-height: 高度填满 */
+.slideshow-image.zoom-fit-height {
+  height: 100%;
+  width: auto;
+  max-width: none;
+  border-radius: 4px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease;
+  user-select: none;
+}
+
+/* fit-window 模式：容器允许滚动查看溢出部分 */
+.slideshow-container.fit-window-mode {
+  overflow: auto;
+}
+
+/* === 控制栏样式 === */
+.slideshow-controls {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 8px 16px;
+  border-radius: 30px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
+  backdrop-filter: blur(10px);
+  transition: opacity 0.3s ease;
+}
+
+/* 自动隐藏模式下的控制栏 */
+.auto-hide-enabled.ui-hidden .slideshow-controls {
+  opacity: 0;
+  pointer-events: auto;  /* 允许鼠标事件，以便 mouseenter 触发显示 */
+}
+
+.slideshow-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 22px;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+  transition: all 0.3s ease;
+  border-radius: 50%;
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.slideshow-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.1);
+}
+
+.slideshow-btn:active {
+  transform: scale(0.95);
+}
+
+/* 缩放模式按钮 - 文本按钮，需要更宽 */
+.slideshow-zoom-btn {
+  font-size: 12px;
+  border-radius: 16px;
+  width: auto;
+  min-width: 52px;
+  padding: 5px 10px;
+  gap: 4px;
+}
+
+/* 缩放模式文字 */
+.zoom-mode-text {
+  font-size: 11px;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+/* 间隔步进按钮 - 小圆形 */
+#slideshow-interval-minus,
+#slideshow-interval-plus {
+  font-size: 16px;
+  width: 30px;
+  height: 30px;
+}
+
+/* 轮播间隔按钮（左键循环切换，右键弹出下拉框） */
+.slideshow-interval-btn {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  font-size: 14px;
+  min-width: 50px;
+  padding: 4px 8px;
+  text-align: center;
+  border-radius: 4px;
+  cursor: pointer;
+  user-select: none;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.slideshow-interval-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.slideshow-interval-btn:active {
+  transform: scale(0.95);
+}
+
+/* 间隔下拉框 */
+.slideshow-interval-dropdown {
+  position: fixed;
+  background: rgba(30, 30, 30, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  padding: 6px;
+  z-index: 2147483648;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 80px;
+}
+
+/* 下拉选项 */
+.slideshow-interval-option {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 14px;
+  padding: 8px 16px;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  font-family: inherit;
+  white-space: nowrap;
+}
+
+.slideshow-interval-option:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.slideshow-interval-option.active {
+  background: rgba(76, 175, 80, 0.4);
+  font-weight: bold;
+}
+
+/* 自定义间隔输入框 */
+.slideshow-interval-input {
+  position: fixed;
+  z-index: 2147483647;
+}
+
+.slideshow-interval-input-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(30, 30, 30, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  padding: 8px 12px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.slideshow-interval-number {
+  width: 60px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  color: white;
+  font-size: 14px;
+  padding: 4px 8px;
+  text-align: center;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.slideshow-interval-number:focus {
+  border-color: rgba(76, 175, 80, 0.8);
+  box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2);
+}
+
+/* 隐藏 number 输入框的上下箭头 */
+.slideshow-interval-number::-webkit-inner-spin-button,
+.slideshow-interval-number::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.slideshow-interval-number[type='number'] {
+  -moz-appearance: textfield;
+}
+
+.slideshow-interval-unit {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 14px;
+  user-select: none;
+}
+
+.slideshow-interval-confirm,
+.slideshow-interval-cancel {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  width: 28px;
+  height: 28px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  padding: 0;
+  line-height: 1;
+}
+
+.slideshow-interval-confirm {
+  background: rgba(76, 175, 80, 0.4);
+}
+
+.slideshow-interval-confirm:hover {
+  background: rgba(76, 175, 80, 0.6);
+}
+
+.slideshow-interval-cancel {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.slideshow-interval-cancel:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* 抖动动画 - 输入无效时 */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-4px); }
+  20%, 40%, 60%, 80% { transform: translateX(4px); }
+}
+
+.shake {
+  animation: shake 0.4s ease-in-out;
+}
+
+/* === 缩放下拉框 === */
+.slideshow-zoom-dropdown {
+  position: fixed;
+  background: rgba(30, 30, 30, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  padding: 6px;
+  z-index: 2147483648;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 100px;
+}
+
+/* 缩放下拉选项 */
+.slideshow-zoom-option {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 14px;
+  padding: 8px 16px;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  font-family: inherit;
+  white-space: nowrap;
+}
+
+.slideshow-zoom-option:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.slideshow-zoom-option.active {
+  background: rgba(76, 175, 80, 0.4);
+  font-weight: bold;
+}
+
+/* === 关闭按钮 === */
+.slideshow-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: white;
+  font-size: 30px;
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  z-index: 10;
+}
+
+/* 自动隐藏模式下的关闭按钮 */
+.auto-hide-enabled.ui-hidden .slideshow-close {
+  opacity: 0;
+  pointer-events: auto;
+}
+
+.slideshow-close:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: rotate(90deg);
+}
+
+/* === 计数器 === */
+.slideshow-counter {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  color: white;
+  font-size: 16px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 8px 15px;
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  transition: opacity 0.3s ease;
+}
+
+/* 自动隐藏模式下的计数器 */
+.auto-hide-enabled.ui-hidden .slideshow-counter {
+  opacity: 0;
+  pointer-events: auto;
+}
+
+/* === 图片标题 === */
+.slideshow-title {
+  position: absolute;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  font-size: 14px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 5px 15px;
+  border-radius: 15px;
+  max-width: 80%;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  backdrop-filter: blur(10px);
+  transition: opacity 0.3s ease;
+}
+
+/* 自动隐藏模式下的标题 */
+.auto-hide-enabled.ui-hidden .slideshow-title {
+  opacity: 0;
+  pointer-events: auto;
+}
+
+/* 隐藏图片提示文本（通过配置关闭时） */
+.slideshow-title.title-hidden {
+  display: none;
+}
+
+/* === 看漫画移动方向浮层（悬浮控制条图标时显示） === */
+.comic-mode-popover {
+  position: absolute;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  will-change: left, bottom;
+  background: rgba(30, 30, 35, 0.96);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+  padding: 10px;
+  display: none;
+  z-index: 60;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+}
+
+.comic-mode-popover.open {
+  display: block;
+}
+
+.comic-mode-popover-title {
+  font-size: 12px;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 8px;
+  opacity: 0.85;
+}
+
+.comic-mode-smooth-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 6px 10px;
+  margin-bottom: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.85);
+  cursor: pointer;
+  user-select: none;
+}
+
+.comic-mode-smooth-row span:first-child {
+  flex: 1;
+}
+
+/* 浮层内预留比例输入行 */
+.comic-mode-keep-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 4px 10px;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.85);
+  cursor: pointer;
+  user-select: none;
+}
+
+.comic-mode-keep-row span:first-child {
+  flex: 1;
+}
+
+.comic-mode-keep-row input[type="number"] {
+  width: 56px;
+  padding: 2px 6px;
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  color: #fff;
+  font-size: 12px;
+  text-align: center;
+  outline: none;
+}
+
+.comic-mode-keep-row input[type="number"]:focus {
+  border-color: #4A90D9;
+}
+
+/* === "下载全部"浮层（悬浮下载图标时显示） === */
+.download-all-popover {
+  position: absolute;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  will-change: left, bottom;
+  background: rgba(30, 30, 35, 0.96);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+  padding: 6px;
+  display: none;
+  z-index: 60;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+}
+
+.download-all-popover.open {
+  display: block;
+}
+
+.download-all-popover-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  width: 100%;
+  padding: 8px 12px;
+  background: transparent;
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 12px;
+  line-height: 1;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.download-all-popover-item:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.download-all-popover-item:disabled {
+  opacity: 0.5;
+  cursor: default;
+  pointer-events: none;
+}
+
+.download-all-popover-item svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+/* 浮层内平滑移动开关 */
+.comic-mode-smooth-row .toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 38px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+.comic-mode-smooth-row .toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.comic-mode-smooth-row .toggle-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.25);
+  transition: 0.25s;
+  border-radius: 20px;
+}
+
+.comic-mode-smooth-row .toggle-slider::before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 2px;
+  top: 2px;
+  background-color: #fff;
+  transition: 0.25s;
+  border-radius: 50%;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+}
+
+.comic-mode-smooth-row .toggle-switch input:checked + .toggle-slider {
+  background-color: #4A90D9;
+}
+
+.comic-mode-smooth-row .toggle-switch input:checked + .toggle-slider::before {
+  transform: translateX(18px);
+}
+
+.comic-mode-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  width: 280px;
+  justify-content: center;
+}
+
+.comic-mode-option {
+  width: 60px;
+  height: 60px;
+  padding: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.06);
+  border: 2px solid transparent;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.comic-mode-option:hover {
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.comic-mode-option.selected {
+  border-color: #4CAF50;
+  background: rgba(76, 175, 80, 0.22);
+  box-shadow: 0 0 10px rgba(76, 175, 80, 0.4);
+}
+
+.comic-mode-option svg {
+  display: block;
+  width: 52px;
+  height: 52px;
+}
+
+/* === 导航按钮 === */
+.slideshow-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: white;
+  font-size: 40px;
+  cursor: pointer;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  padding: 0;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+/* 自动隐藏模式下的导航按钮 */
+.auto-hide-enabled.ui-hidden .slideshow-prev,
+.auto-hide-enabled.ui-hidden .slideshow-next {
+  opacity: 0;
+  pointer-events: auto;
+}
+
+.slideshow-nav:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.slideshow-prev {
+  left: 20px;
+}
+
+.slideshow-next {
+  right: 20px;
+}
+
+/* === 自动播放按钮 === */
+.slideshow-auto-play {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 8px 15px;
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.slideshow-auto-play:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.slideshow-auto-play.active {
+  background: rgba(76, 175, 80, 0.6);
+}
+
+/* === 自动隐藏 toggle 开关 === */
+.slideshow-auto-hide-toggle {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 4px 6px;
+  border-radius: 20px;
+  transition: background 0.3s ease;
+  flex-shrink: 0;
+}
+
+.slideshow-auto-hide-toggle:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.toggle-label {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 11px;
+  white-space: nowrap;
+  user-select: none;
+}
+
+.toggle-track {
+  position: relative;
+  width: 30px;
+  height: 16px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  transition: background 0.3s ease;
+  flex-shrink: 0;
+}
+
+.toggle-track.active {
+  background: rgba(76, 175, 80, 0.6);
+}
+
+.toggle-thumb {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 12px;
+  height: 12px;
+  background: #fff;
+  border-radius: 50%;
+  transition: left 0.25s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.toggle-track.active .toggle-thumb {
+  left: 16px;
+}
+
+/* === 全屏模式 === */
+.slideshow-overlay:fullscreen {
+  background: rgba(0, 0, 0, 0.95);
+  width: 100vw;
+  height: 100vh;
+}
+
+.slideshow-overlay:fullscreen .slideshow-container {
+  width: 100%;
+  height: 100%;
+}
+
+/* Webkit 浏览器全屏兼容 */
+.slideshow-overlay:-webkit-full-screen {
+  background: rgba(0, 0, 0, 0.95);
+  width: 100vw;
+  height: 100vh;
+}
+
+.slideshow-overlay:-webkit-full-screen .slideshow-container {
+  width: 100%;
+  height: 100%;
+}
+
+/* Firefox 全屏兼容 */
+.slideshow-overlay:-moz-full-screen {
+  background: rgba(0, 0, 0, 0.95);
+  width: 100vw;
+  height: 100vh;
+}
+
+.slideshow-overlay:-moz-full-screen .slideshow-container {
+  width: 100%;
+  height: 100%;
+}
+
+/* ==================== 橱窗视图样式 ==================== */
+
+/* 橱窗视图容器 */
+.slideshow-showcase {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.98);
+  z-index: 2147483649;
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  overflow: hidden;
+}
+
+.slideshow-showcase.active {
+  opacity: 1;
+}
+
+/* 橱窗标题栏 */
+.showcase-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.showcase-title {
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.showcase-close {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: white;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.showcase-close:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: rotate(90deg);
+}
+
+/* 橱窗标题栏操作区（批量下载按钮 + 关闭按钮） */
+.showcase-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* 橱窗批量下载按钮 */
+.showcase-download-all {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(76, 175, 80, 0.85);
+  border: none;
+  color: white;
+  height: 36px;
+  padding: 0 14px;
+  border-radius: 18px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.showcase-download-all:hover {
+  background: rgba(76, 175, 80, 1);
+  transform: scale(1.05);
+}
+
+.showcase-download-all:active {
+  transform: scale(0.95);
+}
+
+.showcase-download-all:disabled {
+  cursor: default;
+}
+
+/* 批量下载按钮文字 */
+.showcase-download-all-text {
+  font-weight: 500;
+  line-height: 1;
+}
+
+/* 缩略图网格 */
+.showcase-grid {
+  flex: 1;
+  min-height: 0;           /* 关键：允许 flex 子元素正确收缩，确保 overflow 生效 */
+  overflow-y: auto;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  grid-auto-rows: min-content; /* 关键：强制每行高度等于内容最小高度，防止 auto-fill 下的行高坍塌 */
+  gap: 15px;
+  align-content: start;
+}
+
+/* 缩略图项 */
+.showcase-thumb {
+  position: relative;
+  aspect-ratio: 1;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.showcase-thumb:hover {
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: scale(1.05);
+}
+
+.showcase-thumb.active {
+  border-color: #4CAF50;
+  box-shadow: 0 0 20px rgba(76, 175, 80, 0.4);
+}
+
+/* 缩略图图片 */
+.showcase-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* 缩略图标签 */
+.showcase-thumb-label {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  font-size: 12px;
+  padding: 2px 8px;
+  border-radius: 10px;
+  pointer-events: none;
+}
+
+/* 全屏模式下的橱窗视图 */
+.slideshow-overlay:fullscreen .slideshow-showcase {
+  background: rgba(0, 0, 0, 0.98);
+}
+
+/* Webkit 浏览器全屏兼容 */
+.slideshow-overlay:-webkit-full-screen .slideshow-showcase {
+  background: rgba(0, 0, 0, 0.98);
+}
+
+/* Firefox 全屏兼容 */
+.slideshow-overlay:-moz-full-screen .slideshow-showcase {
+  background: rgba(0, 0, 0, 0.98);
+}
+
+/* ==================== 缩略图栏样式 ==================== */
+
+/* 缩略图栏容器 */
+.slideshow-thumbnail-bar {
+  position: fixed;
+  bottom: 70px;
+  left: 0;
+  width: 100vw;
+  height: 110px;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2147483648;
+  overflow-x: auto;
+  overflow-y: hidden;
+  transition: opacity 0.3s ease;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* 缩略图列表 */
+.thumbnail-list {
+  display: flex;
+  gap: 8px;
+  padding: 10px 20px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  max-width: 95vw;
+  scrollbar-width: none; /* Firefox 隐藏滚动条 */
+  -ms-overflow-style: none; /* IE 和 Edge 隐藏滚动条 */
+}
+
+.thumbnail-list::-webkit-scrollbar {
+  display: none; /* Chrome, Safari 和 Opera 隐藏滚动条 */
+}
+
+/* 单个缩略图项 */
+.thumbnail-item {
+  flex-shrink: 0;
+  width: 90px;
+  height: 90px;
+  border-radius: 4px;
+  overflow: hidden;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.thumbnail-item:hover {
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: scale(1.05);
+}
+
+.thumbnail-item.active {
+  border-color: #4CAF50;
+  box-shadow: 0 0 20px rgba(76, 175, 80, 0.4);
+}
+
+/* 缩略图图片 */
+.thumbnail-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* 自动隐藏模式下的缩略图栏 */
+.auto-hide-enabled.ui-hidden .slideshow-thumbnail-bar {
+  opacity: 0;
+  pointer-events: auto;
+}
+
+/* ==================== 探测选择器模式样式 ==================== */
+
+/* 探测提示条 - 顶部固定，不遮挡页面 */
+.slideshow-detection-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2147483646;
+  pointer-events: none; /* 允许点击穿透到页面 */
+}
+
+.slideshow-detection-overlay .detection-hint-bar {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 12px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  pointer-events: auto; /* 按钮可以点击 */
+}
+
+.slideshow-detection-overlay .detection-hint-text {
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.detection-cancel-btn {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 8px 24px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.detection-cancel-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+/* ==================== 探测结果确认弹窗（页面内） ==================== */
+
+.slideshow-detection-result-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 2147483647;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.slideshow-detection-result-popup.active {
+  opacity: 1;
+}
+
+.slideshow-detection-result-popup .detection-result-content {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 28px 32px;
+  border-radius: 14px;
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.4);
+  min-width: 380px;
+  max-width: 90vw;
+  position: relative;
+  color: white;
+}
+
+.slideshow-detection-result-popup .detection-result-close {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 24px;
+  cursor: pointer;
+  line-height: 1;
+  padding: 4px 8px;
+  transition: color 0.2s ease;
+}
+
+.slideshow-detection-result-popup .detection-result-close:hover {
+  color: white;
+}
+
+.slideshow-detection-result-popup .detection-result-title {
+  margin: 0 0 14px 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.slideshow-detection-result-popup .detection-result-input {
+  width: 100%;
+  box-sizing: border-box;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-family: 'Courier New', Consolas, monospace;
+  font-size: 15px;
+  word-break: break-all;
+  margin-bottom: 10px;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.slideshow-detection-result-popup .detection-result-input:focus {
+  border-color: rgba(76, 175, 80, 0.8);
+  box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2);
+}
+
+.slideshow-detection-result-popup .detection-result-count {
+  margin: 0 0 20px 0;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.slideshow-detection-result-popup .detection-result-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.slideshow-detection-result-popup .detection-apply-btn {
+  flex: 1;
+  background: #4CAF50;
+  color: white;
+  border: none;
+  padding: 11px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.slideshow-detection-result-popup .detection-apply-btn:hover {
+  background: #43A047;
+  box-shadow: 0 4px 16px rgba(76, 175, 80, 0.4);
+}
+
+.slideshow-detection-result-popup .detection-ignore-btn {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  padding: 11px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.slideshow-detection-result-popup .detection-ignore-btn:hover {
+  background: rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+/* 探测成功消息 */
+.detection-success-msg {
+  text-align: center;
+  padding: 20px 16px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.detection-success-msg code {
+  display: block;
+  margin-top: 10px;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-family: 'Courier New', Consolas, monospace;
+  font-size: 13px;
+  color: #a5f3c4;
+}
+
+/* ==================== 看漫画模式样式 ==================== */
+
+/* 漫画模式下容器裁切溢出部分，图片通过 transform 平移 */
+.slideshow-overlay.comic-active .slideshow-container {
+  overflow: hidden;
+}
+
+.slideshow-overlay.comic-active .slideshow-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  max-width: none;
+  max-height: none;
+  width: auto;
+  height: auto;
+  border-radius: 0;
+  box-shadow: none;
+  transition: none;        /* 平移由 JS 逐帧控制，禁用过渡避免抖动 */
+  cursor: grab;
+  will-change: transform;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.slideshow-overlay.comic-active .slideshow-image.comic-grabbing {
+  cursor: grabbing;
+}
+
+/* 看漫画模式按钮高亮 */
+#slideshow-comic.active {
+  background: rgba(76, 175, 80, 0.6);
+}
+
+/* ==================== 分享面板样式 ==================== */
+
+/* 分享按钮（橱窗头部） */
+.showcase-share {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: white;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.showcase-share:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: rotate(90deg);
+}
+
+/* 分享面板容器 */
+.slideshow-share-panel {
+  position: fixed;
+  z-index: 2147483648;
+  background: rgba(30, 30, 30, 0.97);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 12px;
+  padding: 12px;
+  width: 300px;
+  max-width: calc(100vw - 20px);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+  color: white;
+  font-family: inherit;
+}
+
+/* 面板头部 */
+.share-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.share-panel-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.share-panel-close {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0 4px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.share-panel-close:hover {
+  color: white;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* 分组 */
+.share-section {
+  margin-bottom: 8px;
+}
+
+.share-section:last-of-type {
+  margin-bottom: 4px;
+}
+
+/* 平台与工具之间的细分隔线（用于替代原来的"国内/国外"分组标题） */
+.share-divider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.08);
+  margin: 10px 0;
+}
+
+/* 平台网格 */
+.share-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+
+/* 单个平台项 */
+.share-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  padding: 8px 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.share-item:hover {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.25);
+  transform: translateY(-2px);
+}
+
+.share-item:active {
+  transform: scale(0.95);
+}
+
+.share-item-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  flex-shrink: 0;
+  line-height: 1;
+  overflow: hidden;
+}
+
+.share-item-name {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.85);
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+/* 底部提示 */
+.share-hint {
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.4);
+  line-height: 1.4;
+  margin-top: 4px;
+  padding-top: 8px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+
+
+/* Compact reference button inherits the original toolbar sizing. */
+.slideshow-reference-btn[data-pinned="true"] { color: #91c9ff; }
+.slideshow-reference-btn[aria-pressed="true"] { background: rgba(100, 170, 240, .25); }
+
+/* Previous contour preset (disabled). Restore by switching the media condition to all. */
+@media not all {
+.slideshow-controls,
+.slideshow-controls button,
+.slideshow-controls span {
+  text-shadow:
+    -0.5px 0 rgba(0, 0, 0, 0.28),
+     0.5px 0 rgba(0, 0, 0, 0.28),
+     0 -0.5px rgba(0, 0, 0, 0.28),
+     0 0.5px rgba(0, 0, 0, 0.28);
+}
+.slideshow-controls svg {
+  filter: drop-shadow(0 0 0.65px rgba(0, 0, 0, 0.45));
+}
+}
+
+/* Active soft-shadow preset. Disable this block when restoring contours. */
+@media all {
+  .slideshow-controls,
+  .slideshow-controls button,
+  .slideshow-controls span {
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.30);
+  }
+  .slideshow-controls svg {
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.30));
+  }
+}
+
+.slideshow-orientation-panel {
+  position: absolute; bottom: calc(100% + 12px); right: 0;
+  display: flex; align-items: center; gap: 8px; padding: 10px;
+  max-width: calc(100vw - 24px); flex-wrap: wrap;
+  color: #fff; background: rgba(35, 35, 35, .92); backdrop-filter: blur(10px);
+  border-radius: 12px; box-shadow: 0 4px 16px #0003; font: 13px system-ui;
+}
+.slideshow-orientation-panel[hidden] { display: none; }
+.slideshow-orientation-panel button, .slideshow-orientation-panel input {
+  color: inherit; background: #ffffff14; border: 1px solid #ffffff40;
+  border-radius: 5px; padding: 5px 7px; font: inherit;
+}
+.slideshow-orientation-panel input { width: 66px; }
+.slideshow-orientation-panel button { cursor: pointer; }
+.slideshow-orientation-panel button:hover { background: #ffffff30; }
+.slideshow-controls [data-orientation-x][aria-pressed="true"],
+.slideshow-controls [data-orientation-y][aria-pressed="true"] { color: #91c9ff; }
+
+.slideshow-orientation-panel .slideshow-angle-slider {
+  display: flex; align-items: center; gap: 8px;
+}
+.slideshow-orientation-panel input[type="range"] {
+  width: clamp(100px, 24vw, 220px); padding: 0; cursor: pointer; accent-color: #91c9ff;
+}
+.slideshow-orientation-panel output {
+  min-width: 52px; font-variant-numeric: tabular-nums; text-align: right;
+}
