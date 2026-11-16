@@ -1546,3 +1546,47 @@
 .slideshow-orientation-panel output {
   min-width: 52px; font-variant-numeric: tabular-nums; text-align: right;
 }
+
+/* Keep the pointer target flush with the top edge, including the gap above the buttons. */
+.slideshow-toolbar-zone {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(1080px, calc(100% - 140px));
+  padding-top: 5px;
+  z-index: 9;
+}
+.slideshow-toolbar-zone .slideshow-controls {
+  position: relative;
+  inset: auto;
+  transform: none;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  gap: 2px;
+  padding: 3px 10px;
+  opacity: 0;
+  transition: none;
+}
+.slideshow-overlay .slideshow-toolbar-zone:hover .slideshow-controls,
+.slideshow-overlay .slideshow-toolbar-zone:has(:focus-visible) .slideshow-controls {
+  opacity: 1;
+}
+.slideshow-toolbar-zone .slideshow-btn { height: 30px; }
+.slideshow-overlay .slideshow-nav { display: none; }
+.slideshow-toolbar-zone .slideshow-orientation-panel { top: 100%; bottom: auto; }
+.slideshow-overlay .slideshow-thumbnail-bar {
+  position: static;
+  flex: 0 0 50px;
+  height: 50px;
+  box-sizing: border-box;
+  opacity: 1;
+}
+.slideshow-overlay .thumbnail-list { padding: 3px 8px; gap: 5px; }
+.slideshow-overlay .thumbnail-item { width: 40px; height: 40px; box-sizing: border-box; }
+.slideshow-overlay:has(.slideshow-thumbnail-bar[style*="flex"]) .slideshow-container {
+  flex: 1 1 0;
+  min-height: 0;
+  overflow: auto;
+}
+.slideshow-overlay.comic-active .slideshow-container { overflow: hidden; }
